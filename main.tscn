@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://ce0kaccb40074"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_nm1p7"]
-[ext_resource type="PackedScene" uid="uid://dp04ik1vg6un7" path="res://scenes/HUD.tscn" id="3_jtxae"]
+[ext_resource type="PackedScene" uid="uid://bgliaq1l215wb" path="res://scenes/HUD.tscn" id="3_jtxae"]
 [ext_resource type="Script" path="res://Map.gd" id="3_l8vxo"]
 [ext_resource type="Texture2D" uid="uid://dt8cagncdty0a" path="res://textures/tileset.png" id="4_3c44o"]
 [ext_resource type="PackedScene" uid="uid://c1g2kesrcewpi" path="res://scenes/Skull.tscn" id="5_th20l"]
-[ext_resource type="PackedScene" uid="uid://csiw2a4d4etml" path="res://scenes/cooldown_bonus.tscn" id="5_wl3cc"]
+[ext_resource type="PackedScene" path="res://scenes/cooldown_bonus.tscn" id="5_wl3cc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eyrws"]
 texture = ExtResource("4_3c44o")
