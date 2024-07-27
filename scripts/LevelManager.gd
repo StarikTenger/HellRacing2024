@@ -45,6 +45,7 @@ func load_level(level_index):
 	$"HUD/Screen/DeathScreen".hide()
 	player.spawn(pos.position, 0)
 	current_level.spawn_bonus()
+	is_game_active = true
 
 func goal_reached() -> void:
 	next_level()
