@@ -1,5 +1,6 @@
 extends Control
 
+@onready var level_manager = $"../../.."
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,4 +12,4 @@ func show_death_screen():
 
 
 func _on_restart_button_pressed():
-	get_tree().reload_current_scene()
+	level_manager.restart_level()
