@@ -10,6 +10,11 @@ func _ready():
 func show_death_screen():
 	show()
 
-
-func _on_restart_button_pressed():
+func _on_restart_level_button_pressed():
 	level_manager.restart_level()
+	
+func _on_resrart_game_button_pressed():
+	level_manager.restart_game()
+
+
+

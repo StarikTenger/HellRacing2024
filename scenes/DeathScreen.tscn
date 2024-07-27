@@ -28,19 +28,37 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 48
 text = "ЖИЗНь!!!"
 
-[node name="RestartButton" type="Button" parent="."]
+[node name="RestartLevelButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.502
 anchor_top = 0.5
 anchor_right = 0.502
 anchor_bottom = 0.5
-offset_left = -125.296
-offset_top = 77.0
-offset_right = 124.704
-offset_bottom = 176.0
+offset_left = -187.84
+offset_top = 76.0
+offset_right = -27.84
+offset_bottom = 175.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "RESTART"
+text = "Restart level"
 
-[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[node name="ResrartGameButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.502
+anchor_top = 0.5
+anchor_right = 0.502
+anchor_bottom = 0.5
+offset_left = 20.16
+offset_top = 76.0
+offset_right = 180.16
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resrart game"
+
+[connection signal="pressed" from="RestartLevelButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="RestartLevelButton" to="." method="_on_restart_level_button_pressed"]
+[connection signal="pressed" from="ResrartGameButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="ResrartGameButton" to="." method="_on_resrart_game_button_pressed"]
