@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://csiw2a4d4etml"]
+[gd_scene load_steps=6 format=3 uid="uid://cl0bcqriec3jy"]
 
 [ext_resource type="Texture2D" uid="uid://c8e4epltccq0c" path="res://textures/cooldown_1.png" id="1_0sbp8"]
 [ext_resource type="Script" path="res://scripts/cooldown_bonus.gd" id="1_0tp5t"]

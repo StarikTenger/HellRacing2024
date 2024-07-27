@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://bgliaq1l215wb"]
 
-[ext_resource type="PackedScene" uid="uid://cffa7qodu0m4t" path="res://scenes/MenuScreen.tscn" id="1_sesaw"]
+[ext_resource type="PackedScene" path="res://scenes/MenuScreen.tscn" id="1_sesaw"]
 [ext_resource type="Texture2D" uid="uid://ben2e0mlkukio" path="res://textures/HUD/healthbarUnder.png" id="1_unjh5"]
 [ext_resource type="Texture2D" uid="uid://dpul6hjk02dnx" path="res://textures/HUD/healthbarProgress.png" id="2_esp00"]
 [ext_resource type="Script" path="res://scripts/OverheatBar.gd" id="3_xljae"]
 [ext_resource type="Script" path="res://scripts/TimeLabel.gd" id="4_c84tb"]
-[ext_resource type="PackedScene" uid="uid://b30gwpehrqnep" path="res://scenes/DeathScreen.tscn" id="6_gjj4b"]
+[ext_resource type="PackedScene" path="res://scenes/DeathScreen.tscn" id="6_gjj4b"]
 
 [node name="HUD" type="CanvasLayer"]
 
