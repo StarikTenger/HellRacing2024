@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name LevelManager
+
 @export var levels = ["res://Levels/level_1.tscn", "res://Levels/level_2.tscn"]  # Список сцен уровней
 
 @onready var death_screen: Control = null
@@ -7,7 +9,10 @@ extends Node2D
 var loaded_levels = []
 var current_level_index = 0
 var current_level: Node2D = null
-var player = null
+var player: Skull = null
+
+var is_game_active: bool = true;
+var current_time: float = 0 # В секундах
 
 func _ready():
 	player = $Skull
@@ -15,6 +20,10 @@ func _ready():
 		loaded_levels.append(load(levels[i]))
 	load_level(current_level_index)
 	death_screen = $"HUD/Screen/DeathScreen"
+	
+func _process(delta):
+	if is_game_active:
+		current_time += delta
 
 func restart_level():
 	var pos: Node2D = current_level.get_node("StartPosition")
@@ -24,6 +33,8 @@ func restart_level():
 	
 func restart_game():
 	load_level(0)
+	current_time = 0
+	
 
 func load_level(level_index):
 	current_level_index = level_index
@@ -38,9 +49,10 @@ func goal_reached() -> void:
 	next_level()
 
 func victory() -> void:
-	pass  # TODO
+	is_game_active = false
 	
 func death() -> void:
+	is_game_active = false
 	death_screen.show_death_screen()
 
 func next_level():

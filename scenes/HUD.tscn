@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp04ik1vg6un7"]
+[gd_scene load_steps=8 format=3 uid="uid://dp04ik1vg6un7"]
 
-[ext_resource type="PackedScene" path="res://scenes/MenuScreen.tscn" id="1_sesaw"]
+[ext_resource type="PackedScene" uid="uid://cffa7qodu0m4t" path="res://scenes/MenuScreen.tscn" id="1_sesaw"]
 [ext_resource type="Texture2D" uid="uid://ben2e0mlkukio" path="res://textures/HUD/healthbarUnder.png" id="1_unjh5"]
+[ext_resource type="Script" path="res://scripts/LevelIndicatorLabel.gd" id="2_7wful"]
 [ext_resource type="Texture2D" uid="uid://dpul6hjk02dnx" path="res://textures/HUD/healthbarProgress.png" id="2_esp00"]
 [ext_resource type="Script" path="res://scripts/OverheatBar.gd" id="3_xljae"]
 [ext_resource type="Script" path="res://scripts/TimeLabel.gd" id="4_c84tb"]
@@ -21,32 +22,45 @@ metadata/_edit_lock_ = true
 [node name="MenuScreen" parent="Screen" instance=ExtResource("1_sesaw")]
 layout_mode = 1
 
+[node name="LevelIndicatorLabel" type="Label" parent="Screen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -488.0
+offset_top = 32.0
+offset_right = -254.0
+offset_bottom = 99.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 48
+text = "Уровень1"
+script = ExtResource("2_7wful")
+
 [node name="OverheatBar" type="TextureProgressBar" parent="Screen"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.555
-anchor_right = 0.555
-offset_left = -406.6
-offset_top = 44.0
-offset_right = -342.6
-offset_bottom = 54.0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.0
+offset_top = 39.0
+offset_right = -128.0
+offset_bottom = 49.0
 grow_horizontal = 2
 scale = Vector2(6, 6)
 value = 33.0
 texture_under = ExtResource("1_unjh5")
 texture_progress = ExtResource("2_esp00")
-tint_over = Color(0.0901961, 1, 1, 1)
 script = ExtResource("3_xljae")
 
 [node name="TimeLabel" type="Label" parent="Screen"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.555
-anchor_right = 0.555
-offset_left = 32.4
-offset_top = 37.0
-offset_right = 334.4
-offset_bottom = 104.0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 256.0
+offset_top = 32.0
+offset_right = 558.0
+offset_bottom = 99.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 48
 text = "Время: 0:00"
