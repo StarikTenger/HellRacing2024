@@ -51,7 +51,7 @@ func _ready():
 	position = $"../StartPosition".position
 	print(position)
 	get_node("SkullAnimation").play()
-	speed = basic_speed
+	force = basic_speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
