@@ -34,7 +34,17 @@ func change_speed(delta):
 func slow_down():
 	acceleration_on = false
 	heat = 0
+	stop_particles();
 	$Cooldown.start()
+	
+
+func stop_particles():
+	$FireParticles.emitting = false
+	$FireParticles2.emitting = false
+
+func start_particles():
+	$FireParticles.emitting = true
+	$FireParticles2.emitting = true
 
 func _physics_process(delta):
 	match state:
@@ -86,6 +96,7 @@ func _process(delta):
 
 func _on_cooldown_timeout():
 	acceleration_on = true
+	start_particles()
 
 
 func _on_tile_detection_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
@@ -95,6 +106,7 @@ func _on_tile_detection_body_shape_entered(body_rid, body, body_shape_index, loc
 func die():
 	state = State.DEAD
 	level_manager.death()
+	stop_particles()
 
 func call_restart():
 	# Вызвать следующий уровень из менеджера уровней
@@ -111,3 +123,4 @@ func spawn(pos: Vector2, rot: float) -> void:
 	rotation = rot
 	target_rotation = rot
 	heat = 0
+	start_particles()
