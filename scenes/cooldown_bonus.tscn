@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://csiw2a4d4etml"]
+
+[ext_resource type="Texture2D" uid="uid://c8e4epltccq0c" path="res://textures/cooldown_1.png" id="1_0sbp8"]
+[ext_resource type="Script" path="res://scenes/cooldown_bonus.gd" id="1_0tp5t"]
+[ext_resource type="Texture2D" uid="uid://kwo80f18xopo" path="res://textures/cooldown_2.png" id="2_47us6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gmfl6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0sbp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_47us6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qwalp"]
+radius = 45.0
+
+[node name="CooldownBonus" type="Area2D"]
+script = ExtResource("1_0tp5t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gmfl6")
+frame_progress = 0.730335
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qwalp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

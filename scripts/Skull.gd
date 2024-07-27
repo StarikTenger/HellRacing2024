@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Skull
 
+class_name Skull
+
 @export var force : float
 @export var basic_force : float = 200
 @export var turn_speed : float = 5
@@ -35,12 +37,18 @@ func slow_down():
 	heat = 0
 	$Cooldown.start()
 
+
+func die():
+	set_physics_process(false)
+	set_process(false)
+	death_screen.show_death_screen()
+
 func _physics_process(delta):
 	match state:
 		State.ALIVE:
 			force = basic_force * pow(10, heat)
 			friction_k = basic_friction_k * pow(0.1, heat)
-			
+
 			# Acceleration
 			var direction : Vector2 = Vector2(1, 0).rotated(rotation)
 			if acceleration_on :
@@ -51,9 +59,9 @@ func _physics_process(delta):
 			var direction_k : float = (1 - abs(velocity.normalized().dot(direction)))
 			velocity -= velocity * direction_k * friction_k * delta;
 			velocity += direction * direction_k * delta * basic_force
-			
+
 			rotation = lerp_angle(rotation, target_rotation, turn_smoothness)
-			
+
 			move_and_slide()
 		State.DEAD:
 			pass
