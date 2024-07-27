@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var turn_smoothness : float = 0.1
 @export var target_rotation : float = 0.0
 
+@onready var death_screen = get_node("../CanvasLayer/DeathScreen")
 
 var acceleration_on = true
 
@@ -52,6 +53,8 @@ func _ready():
 	print(position)
 	get_node("SkullAnimation").play()
 	force = basic_speed
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -60,3 +63,13 @@ func _process(delta):
 
 func _on_cooldown_timeout():
 	acceleration_on = true
+
+
+func _on_tile_detection_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	if body is TileMap:
+		die()
+
+func die():
+	set_physics_process(false)
+	set_process(false)
+	death_screen.show_death_screen()
