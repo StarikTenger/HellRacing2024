@@ -36,6 +36,7 @@ func slow_down():
 	heat = 0
 	stop_particles();
 	$Cooldown.start()
+	emit_smoke_particles()
 	
 
 func stop_particles():
@@ -46,7 +47,12 @@ func start_particles():
 	$FireParticles.emitting = true
 	$FireParticles2.emitting = true
 
+func emit_smoke_particles():
+	$SmokeParticles.emitting = true
+	
+
 func _physics_process(delta):
+	
 	match state:
 		State.ALIVE:
 			force = basic_force * pow(10, heat)
@@ -87,7 +93,8 @@ func _ready():
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta):		
+	
 	match state:
 		State.DEAD:
 			pass
@@ -107,6 +114,7 @@ func _process(delta):
 func _on_cooldown_timeout():
 	acceleration_on = true
 	start_particles()
+	$SmokeParticles.emitting = false
 
 
 func _on_tile_detection_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
