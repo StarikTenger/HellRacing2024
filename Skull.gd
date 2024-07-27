@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 @export var speed : float = 100
-@export var basic_speed : float = 100
+@export var basic_speed : float = 200
 @export var turn_speed : float = 5
-@export var friction_k : float = 0.5
+@export var friction_k : float = 2.5
 @export var turn_smoothness : float = 0.1
 @export var target_rotation : float = 0.0
 
@@ -23,12 +23,14 @@ func slow_down():
 func _physics_process(delta):
 	# Acceleration
 	var direction : Vector2 = Vector2(1, 0).rotated(rotation)
-	if acceleration_on:
+	if acceleration_on :
 		velocity += direction * speed * delta
 		change_speed(delta)
 
 	# Friction
-	velocity -= velocity * friction_k * delta;
+	var direction_k : float = (1 - abs(velocity.normalized().dot(direction)))
+	print(direction_k)
+	velocity -= velocity * direction_k * friction_k * delta;
 
 	# Rotation control
 	if Input.is_action_pressed("ui_left"):
@@ -47,11 +49,11 @@ func _physics_process(delta):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node("SkullAnimation").play()
+	speed = basic_speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-		
-	print(speed)
+	pass
 
 
 func _on_cooldown_timeout():
