@@ -13,8 +13,7 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	if body == player:
-		print("enter")
+	if body == player and player.state == Skull.State.ALIVE:
 		player.slow_down()
 		$AnimatedSprite2D.play("splash")
 		await $AnimatedSprite2D.animation_finished

@@ -10,9 +10,12 @@ class_name Skull
 @export var basic_friction_k : float = 5
 @export var turn_smoothness : float = 0.1
 @export var overheat_time : float = 5 # Time in seconds to overheat (when heat = 1)
+@export var is_inited: bool = false
 
 var target_rotation : float
 var heat : float
+
+
 
 
 @onready var level_manager: Node2D = $".."
@@ -135,10 +138,10 @@ func goal_reached():
 	level_manager.goal_reached()
 
 func spawn(pos: Vector2, rot: float) -> void:
-	state = State.ALIVE
 	position = pos
 	velocity = Vector2(0, 0)
 	rotation = rot
 	target_rotation = rot
 	heat = 0
 	start_particles()
+	state = State.ALIVE
