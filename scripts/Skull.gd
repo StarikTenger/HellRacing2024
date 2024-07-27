@@ -11,8 +11,15 @@ extends CharacterBody2D
 @export var heat : float = 0.0 # Takes values from 0 to 1
 @export var overheat_time : float = 5 # Time in seconds to overheat (when heat = 1)
 
-@onready var death_screen = $"../HUD/DeathScreen"
-@onready var level_manager = $".."
+@onready var death_screen: Control = $"../HUD/DeathScreen"
+@onready var level_manager: Node2D = $".."
+
+enum State {
+	ALIVE,
+	DEAD
+}
+
+@onready var state: State = State.ALIVE
 
 var acceleration_on = true
 
@@ -74,6 +81,7 @@ func _on_tile_detection_body_shape_entered(body_rid, body, body_shape_index, loc
 		die()
 
 func die():
+	
 	set_physics_process(false)
 	set_process(false)
 	death_screen.show_death_screen()
@@ -81,3 +89,9 @@ func die():
 func reach_goal():
 	# Вызвать следующий уровень из менеджера уровней
 	level_manager.next_level()
+
+func spawn(pos: Vector2, rot: float) -> void:
+	state = State.ALIVE
+	position = pos
+	velocity = Vector2(0, 0)
+	rotation = rot

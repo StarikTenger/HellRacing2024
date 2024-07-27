@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpnf26hklvgoa"]
+[gd_scene load_steps=4 format=3 uid="uid://bd0wt6bk716gl"]
 
-[ext_resource type="PackedScene" uid="uid://dd1bnvw7rawck" path="res://scenes/HUD.tscn" id="1_ihaar"]
+[ext_resource type="PackedScene" uid="uid://bgliaq1l215wb" path="res://scenes/HUD.tscn" id="1_ihaar"]
 [ext_resource type="PackedScene" uid="uid://c1g2kesrcewpi" path="res://scenes/Skull.tscn" id="2_103lw"]
 
 [sub_resource type="GDScript" id="GDScript_2eoft"]
@@ -33,7 +33,7 @@ func next_level():
 		load_level(current_level_index)
 
 func restart_level():
-	get_tree().reload_current_scene()
+	load_level(current_level_index)
 
 func spawn_player(lv_position):
 	var player = $Skull
@@ -48,6 +48,16 @@ script = SubResource("GDScript_2eoft")
 [node name="Skull" parent="." instance=ExtResource("2_103lw")]
 top_level = true
 position = Vector2(36, 214)
+force = null
+basic_force = null
+turn_speed = null
+force_threshold = null
+friction_k = null
+basic_friction_k = null
+turn_smoothness = null
+target_rotation = null
+heat = null
+overheat_time = null
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skull"]
 scale = Vector2(3.33333, 3.33333)
