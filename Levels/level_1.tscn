@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ny17ke668llt"]
+[gd_scene load_steps=7 format=3 uid="uid://ny17ke668llt"]
 
 [ext_resource type="Texture2D" uid="uid://dt8cagncdty0a" path="res://textures/tileset.png" id="1_8snr4"]
 [ext_resource type="PackedScene" uid="uid://cl0bcqriec3jy" path="res://scenes/cooldown_bonus.tscn" id="1_of7a2"]
-[ext_resource type="Texture2D" uid="uid://di5xgdg40jpga" path="res://textures/finish_point.jpg" id="3_pqfaa"]
+[ext_resource type="PackedScene" uid="uid://eyv6i0lu3mu4" path="res://scenes/FinishPosition.tscn" id="3_fn886"]
 
 [sub_resource type="GDScript" id="GDScript_5s4vk"]
 script/source = "extends Node2D
@@ -721,19 +721,6 @@ tile_size = Vector2i(50, 50)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_eyrws")
 
-[sub_resource type="GDScript" id="GDScript_u5xlg"]
-script/source = "extends Area2D
-
-@onready var player = $\"../../Skull\"
-
-func _on_body_entered(body):
-	if body == player:
-		player.goal_reached()
-"
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4vfus"]
-radius = 87.5818
-
 [node name="Level1" type="Node2D"]
 script = SubResource("GDScript_5s4vk")
 bonus_scene = ExtResource("1_of7a2")
@@ -748,19 +735,8 @@ layer_0/tile_data = PackedInt32Array(-196612, 65536, 1, -131076, 65536, 1, -6554
 position = Vector2(-168, 123)
 scale = Vector2(2, 2)
 
-[node name="FinishPosition" type="Area2D" parent="."]
-position = Vector2(203.873, 98.6055)
-scale = Vector2(0.563252, 0.563253)
-script = SubResource("GDScript_u5xlg")
-
-[node name="Sprite2D" type="Sprite2D" parent="FinishPosition"]
-position = Vector2(913.999, 192)
-scale = Vector2(0.332334, 0.332)
-texture = ExtResource("3_pqfaa")
-
-[node name="FinishCollision" type="CollisionShape2D" parent="FinishPosition"]
-position = Vector2(914, 192)
-shape = SubResource("CircleShape2D_4vfus")
+[node name="FinishPosition" parent="." instance=ExtResource("3_fn886")]
+position = Vector2(843, 224)
 
 [node name="CooldownPositions" type="Node2D" parent="."]
 
@@ -774,5 +750,3 @@ position = Vector2(767, -55)
 position = Vector2(534, 157)
 
 [node name="Bonuses" type="Node2D" parent="."]
-
-[connection signal="body_entered" from="FinishPosition" to="FinishPosition" method="_on_body_entered"]

@@ -35,7 +35,6 @@ func restart_game():
 
 func load_level(level_index):
 	current_level_index = level_index
-	print("current_level_index ", current_level_index)
 	assert(level_index >= 0 and level_index < loaded_levels.size())
 	var level_path: PackedScene = loaded_levels[level_index]
 	remove_child(current_level)
@@ -61,7 +60,6 @@ func next_level():
 	if current_level_index + 1 < levels.size():
 		current_level_index += 1
 
-	print(current_level_index)
 	if current_level_index < levels.size():
 		load_level(current_level_index)
 	else:

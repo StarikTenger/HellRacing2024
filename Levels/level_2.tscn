@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://gf04mfyu57dj"]
+[gd_scene load_steps=8 format=3 uid="uid://gf04mfyu57dj"]
 
 [ext_resource type="PackedScene" uid="uid://cl0bcqriec3jy" path="res://scenes/cooldown_bonus.tscn" id="1_yolfh"]
 [ext_resource type="Texture2D" uid="uid://dt8cagncdty0a" path="res://textures/tileset.png" id="2_nkwly"]
 [ext_resource type="PackedScene" path="res://scenes/DestructibleObstacle.tscn" id="3_72g57"]
+[ext_resource type="PackedScene" uid="uid://eyv6i0lu3mu4" path="res://scenes/FinishPosition.tscn" id="3_my1ni"]
 
 [sub_resource type="GDScript" id="GDScript_5s4vk"]
 script/source = "extends Node2D
@@ -721,19 +722,6 @@ tile_size = Vector2i(50, 50)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_eyrws")
 
-[sub_resource type="GDScript" id="GDScript_u5xlg"]
-script/source = "extends Area2D
-
-@onready var player = $\"../../Skull\"
-
-func _on_body_entered(body):
-	if body == player:
-		player.goal_reached()
-"
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4vfus"]
-radius = 19.0
-
 [node name="Level1" type="Node2D"]
 script = SubResource("GDScript_5s4vk")
 bonus_scene = ExtResource("1_yolfh")
@@ -748,12 +736,8 @@ layer_0/tile_data = PackedInt32Array(-1, 196608, 0, -65536, 65536, 2, -65535, 65
 position = Vector2(341, 263)
 scale = Vector2(2, 2)
 
-[node name="FinishPosition" type="Area2D" parent="."]
-script = SubResource("GDScript_u5xlg")
-
-[node name="FinishCollision" type="CollisionShape2D" parent="FinishPosition"]
-position = Vector2(908, 187)
-shape = SubResource("CircleShape2D_4vfus")
+[node name="FinishPosition" parent="." instance=ExtResource("3_my1ni")]
+position = Vector2(176, 592)
 
 [node name="CooldownPositions" type="Node2D" parent="."]
 
@@ -770,5 +754,3 @@ position = Vector2(956, 192)
 
 [node name="DestructibleObstacle" parent="." instance=ExtResource("3_72g57")]
 position = Vector2(1200, 180)
-
-[connection signal="body_entered" from="FinishPosition" to="FinishPosition" method="_on_body_entered"]
