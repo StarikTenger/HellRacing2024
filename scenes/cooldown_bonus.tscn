@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cl0bcqriec3jy"]
 
 [ext_resource type="Texture2D" uid="uid://c8e4epltccq0c" path="res://textures/cooldown_1.png" id="1_0sbp8"]
-[ext_resource type="Script" path="res://scenes/cooldown_bonus.gd" id="1_0tp5t"]
+[ext_resource type="Script" path="res://scripts/cooldown_bonus.gd" id="1_0tp5t"]
 [ext_resource type="Texture2D" uid="uid://kwo80f18xopo" path="res://textures/cooldown_2.png" id="2_47us6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gmfl6"]
