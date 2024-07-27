@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ct3rujucjoo70"]
+[gd_scene load_steps=5 format=3 uid="uid://c84gf4e4nd07m"]
 
 [ext_resource type="Script" path="res://scripts/DestructibleObstacle.gd" id="1_uflla"]
-[ext_resource type="Texture2D" path="res://textures/obstacle.png" id="1_ysuvu"]
+[ext_resource type="Texture2D" uid="uid://dqp8qnf14fv5" path="res://textures/obstacle.png" id="1_ysuvu"]
 [ext_resource type="AudioStream" uid="uid://c02dg1be14ybc" path="res://object-destruct-placeholder.mp3" id="3_6gak0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_soup3"]
