@@ -1,27 +1,33 @@
 extends CharacterBody2D
 
-@export var force : float = 100
-@export var basic_speed : float = 200
+@export var force : float
+@export var basic_force : float = 200
 @export var turn_speed : float = 5
-@export var speed_threshold : float = 1000
-@export var friction_k : float = 2.5
+@export var force_threshold : float = 1000
+@export var friction_k : float
+@export var basic_friction_k : float = 5
 @export var turn_smoothness : float = 0.1
 @export var target_rotation : float = 0.0
+@export var heat : float = 0.0 # Takes values from 0 to 1
+@export var overheat_time : float = 5 # Time in seconds to overheat (when heat = 1)
 
 
 var acceleration_on = true
 
 func change_speed(delta):
-	force *= pow(1.2, delta)
-	if force > speed_threshold:
-		force = speed_threshold
+	heat += delta / overheat_time
+	if heat > 1:
+		heat = 1
 
 func slow_down():
 	acceleration_on = false
-	force = basic_speed
+	heat = 0
 	$Cooldown.start()
 
 func _physics_process(delta):
+	force = basic_force * pow(10, heat)
+	friction_k = basic_friction_k * pow(0.1, heat)
+	
 	# Acceleration
 	var direction : Vector2 = Vector2(1, 0).rotated(rotation)
 	if acceleration_on :
@@ -31,6 +37,7 @@ func _physics_process(delta):
 	# Friction
 	var direction_k : float = (1 - abs(velocity.normalized().dot(direction)))
 	velocity -= velocity * direction_k * friction_k * delta;
+	velocity += direction * direction_k * delta * basic_force
 
 	# Rotation control
 	if Input.is_action_pressed("left"):
@@ -51,7 +58,6 @@ func _ready():
 	position = $"../StartPosition".position
 	print(position)
 	get_node("SkullAnimation").play()
-	force = basic_speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
