@@ -697,23 +697,6 @@ tile_size = Vector2i(50, 50)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_eyrws")
 
-[sub_resource type="GDScript" id="GDScript_ha4aj"]
-script/source = "extends Control
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	hide()
-
-
-func show_death_screen():
-	show()
-
-
-func _on_restart_button_pressed():
-	get_tree().reload_current_scene()
-"
-
 [node name="Main" type="Node2D"]
 
 [node name="HUD" parent="." instance=ExtResource("3_jtxae")]
@@ -736,40 +719,3 @@ remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(0.999999, 0.999999)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="DeathScreen" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -5.0
-offset_top = 3.0
-offset_right = 1143.0
-offset_bottom = 651.0
-script = SubResource("GDScript_ha4aj")
-
-[node name="DeathLabel" type="Label" parent="CanvasLayer/DeathScreen"]
-layout_mode = 0
-offset_left = 265.0
-offset_top = 89.0
-offset_right = 886.0
-offset_bottom = 194.0
-theme_override_font_sizes/font_size = 48
-text = "СМЕРРРРРТь"
-
-[node name="RestartButton" type="Button" parent="CanvasLayer/DeathScreen"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.502
-anchor_top = 0.5
-anchor_right = 0.502
-anchor_bottom = 0.5
-offset_left = -125.296
-offset_top = 77.0
-offset_right = 124.704
-offset_bottom = 176.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "RESTART"
-
-[connection signal="pressed" from="CanvasLayer/DeathScreen/RestartButton" to="CanvasLayer/DeathScreen" method="_on_restart_button_pressed"]

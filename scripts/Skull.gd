@@ -11,7 +11,7 @@ extends CharacterBody2D
 @export var heat : float = 0.0 # Takes values from 0 to 1
 @export var overheat_time : float = 5 # Time in seconds to overheat (when heat = 1)
 
-@onready var death_screen = get_node("../CanvasLayer/DeathScreen")
+@onready var death_screen = $"../HUD/DeathScreen"
 
 var acceleration_on = true
 
