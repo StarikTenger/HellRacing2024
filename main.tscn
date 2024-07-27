@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://ce0kaccb40074"]
+
+[ext_resource type="Script" path="res://Skull.gd" id="1_7uviu"]
+[ext_resource type="Texture2D" uid="uid://c5tbwnxq3xh5a" path="res://textures/skull.png" id="1_vrmo8"]
+[ext_resource type="Texture2D" uid="uid://dycqeaibrgb4q" path="res://textures/skull_open.png" id="2_wfemk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tyr4l"]
+radius = 93.0
+height = 266.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oo011"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vrmo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wfemk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Main" type="Node2D"]
+
+[node name="Skull" type="CharacterBody2D" parent="."]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_7uviu")
+
+[node name="SkullCollision" type="CollisionShape2D" parent="Skull"]
+position = Vector2(0, -3.49587e-13)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tyr4l")
+
+[node name="SkullAnimation" type="AnimatedSprite2D" parent="Skull"]
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_oo011")
+frame_progress = 0.523838
+
+[node name="Cooldown" type="Timer" parent="Skull"]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Skull/Cooldown" to="Skull" method="_on_cooldown_timeout"]
