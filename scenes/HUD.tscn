@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgliaq1l215wb"]
+
+[ext_resource type="Texture2D" uid="uid://ben2e0mlkukio" path="res://textures/HUD/healthbarUnder.png" id="1_unjh5"]
+[ext_resource type="Texture2D" uid="uid://dpul6hjk02dnx" path="res://textures/HUD/healthbarProgress.png" id="2_esp00"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="OverheatBar" type="TextureProgressBar" parent="."]
+offset_left = 415.0
+offset_top = 19.0
+offset_right = 479.0
+offset_bottom = 29.0
+scale = Vector2(6, 6)
+value = 33.0
+texture_under = ExtResource("1_unjh5")
+texture_progress = ExtResource("2_esp00")
+tint_over = Color(0.0901961, 1, 1, 1)
