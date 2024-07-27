@@ -25,10 +25,20 @@ func change_speed(delta):
 func slow_down():
 	acceleration_on = false
 	heat = 0
+	stop_particles();
 	$Cooldown.start()
 	
 
+func stop_particles():
+	$FireParticles.emitting = false
+	$FireParticles2.emitting = false
+
+func start_particles():
+	$FireParticles.emitting = true
+	$FireParticles2.emitting = true
+
 func die():
+	stop_particles()
 	set_physics_process(false)
 	set_process(false)
 	death_screen.show_death_screen()
@@ -69,11 +79,11 @@ func _ready():
 	get_node("SkullAnimation").play()
 	
 func _process(delta):
-	var direction : Vector2 = Vector2(1, 0).rotated(rotation)
-	$FireParticles.process_material.direction = Vector3(-1, 0, 0)
+	pass
 
 func _on_cooldown_timeout():
 	acceleration_on = true
+	start_particles()
 
 
 func _on_tile_detection_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
