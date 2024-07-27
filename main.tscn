@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ce0kaccb40074"]
 
-[ext_resource type="PackedScene" uid="uid://bgliaq1l215wb" path="res://scenes/HUD.tscn" id="3_jtxae"]
+[ext_resource type="PackedScene" uid="uid://dd1bnvw7rawck" path="res://scenes/HUD.tscn" id="3_jtxae"]
 [ext_resource type="PackedScene" uid="uid://c1g2kesrcewpi" path="res://scenes/Skull.tscn" id="5_th20l"]
 
 [sub_resource type="TileSet" id="TileSet_ehn0e"]

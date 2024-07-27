@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://uq7rfs03q8un"]
+[gd_scene load_steps=4 format=3 uid="uid://bpnf26hklvgoa"]
 
 [ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_5702t"]
-[ext_resource type="PackedScene" uid="uid://bgliaq1l215wb" path="res://scenes/HUD.tscn" id="1_ihaar"]
+[ext_resource type="PackedScene" uid="uid://dd1bnvw7rawck" path="res://scenes/HUD.tscn" id="1_ihaar"]
 [ext_resource type="PackedScene" uid="uid://c1g2kesrcewpi" path="res://scenes/Skull.tscn" id="2_103lw"]
 
 [node name="LevelManager" type="Node2D"]

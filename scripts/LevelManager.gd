@@ -7,7 +7,7 @@ extends Node2D
 var loaded_levels = []
 var current_level_index = 0
 var level: Node2D = null
-var player: Skull = null
+var player = null
 
 func _ready():
 	player = $Skull
@@ -18,7 +18,7 @@ func _ready():
 
 func restart_level():
 	var pos: Node2D = level.get_node("StartPosition")
-	add_child(level)
+	$"HUD/DeathScreen".hide()
 	player.spawn(pos.position, 0)
 
 func load_level(level_index):
@@ -26,6 +26,7 @@ func load_level(level_index):
 	var level_path: PackedScene = loaded_levels[level_index]
 	remove_child(level)
 	level = level_path.instantiate()
+	add_child(level)
 	restart_level()
 
 func goal_reached() -> void:
