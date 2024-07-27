@@ -1,47 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpnf26hklvgoa"]
+[gd_scene load_steps=4 format=3 uid="uid://uq7rfs03q8un"]
 
-[ext_resource type="PackedScene" uid="uid://dd1bnvw7rawck" path="res://scenes/HUD.tscn" id="1_ihaar"]
+[ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_5702t"]
+[ext_resource type="PackedScene" uid="uid://bgliaq1l215wb" path="res://scenes/HUD.tscn" id="1_ihaar"]
 [ext_resource type="PackedScene" uid="uid://c1g2kesrcewpi" path="res://scenes/Skull.tscn" id="2_103lw"]
 
-[sub_resource type="GDScript" id="GDScript_2eoft"]
-script/source = "extends Node2D
-
-@export var levels = [\"res://Levels/level_1.tscn\", \"res://Levels/level_2.tscn\"]  # Список сцен уровней
-var loaded_levels = []
-var current_level_index = 0
-var level: Node2D = null
-
-func _ready():
-	for i in range(len(levels)):
-		loaded_levels.append(load(levels[i]))
-	load_level(current_level_index)
-
-func load_level(level_index):
-	if level_index >= 0 and level_index < loaded_levels.size():
-		var level_path = loaded_levels[level_index]
-		remove_child(level)
-		level = level_path.instantiate()
-		var pos = level.get_node(\"StartPosition\")
-		add_child(level)
-		get_tree().current_scene = level
-		spawn_player(pos.position)
-		print(current_level_index)
-
-func next_level():
-	current_level_index += 1
-	if current_level_index < levels.size():
-		load_level(current_level_index)
-
-func restart_level():
-	get_tree().reload_current_scene()
-
-func spawn_player(lv_position):
-	var player = $Skull
-	player.position = lv_position
-"
-
 [node name="LevelManager" type="Node2D"]
-script = SubResource("GDScript_2eoft")
+script = ExtResource("1_5702t")
 
 [node name="HUD" parent="." instance=ExtResource("1_ihaar")]
 
