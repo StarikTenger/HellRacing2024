@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://d0b8wehy7lv7" path="res://textures/fire_particle.png" id="4_qyghn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e83ju"]
-radius = 93.3333
-height = 266.667
+radius = 56.6667
+height = 226.667
 
 [sub_resource type="Curve" id="Curve_p02te"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -52,7 +52,7 @@ scale_curve = SubResource("CurveTexture_1v1sy")
 alpha_curve = SubResource("CurveTexture_do2vr")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tyr4l"]
-radius = 93.0
+radius = 86.6667
 height = 266.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oo011"]
@@ -97,6 +97,7 @@ alpha_curve = SubResource("CurveTexture_8nx71")
 
 [node name="Skull" type="CharacterBody2D"]
 scale = Vector2(0.3, 0.3)
+collision_mask = 0
 script = ExtResource("1_ocvkw")
 
 [node name="TileDetection" type="Area2D" parent="."]
@@ -124,14 +125,15 @@ position = Vector2(0, -3.49587e-13)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_tyr4l")
 
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+
 [node name="SkullAnimation" type="AnimatedSprite2D" parent="."]
 rotation = -1.5708
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_oo011")
 frame_progress = 0.813595
-
-[node name="Cooldown" type="Timer" parent="."]
-one_shot = true
+metadata/_edit_lock_ = true
 
 [node name="FireParticles2" type="GPUParticles2D" parent="."]
 position = Vector2(-66.6667, 0)
