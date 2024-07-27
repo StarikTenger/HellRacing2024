@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgliaq1l215wb"]
+[gd_scene load_steps=5 format=3 uid="uid://bgliaq1l215wb"]
 
 [ext_resource type="PackedScene" path="res://scenes/MenuScreen.tscn" id="1_sesaw"]
 [ext_resource type="Texture2D" uid="uid://ben2e0mlkukio" path="res://textures/HUD/healthbarUnder.png" id="1_unjh5"]
@@ -18,18 +18,15 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="MenuScreen" parent="Screen" instance=ExtResource("1_sesaw")]
-layout_mode = 1
-
 [node name="OverheatBar" type="TextureProgressBar" parent="Screen"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.555
-anchor_right = 0.555
-offset_left = -406.6
-offset_top = 44.0
-offset_right = -342.6
-offset_bottom = 54.0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -194.0
+offset_top = 42.0
+offset_right = -130.0
+offset_bottom = 52.0
 grow_horizontal = 2
 scale = Vector2(6, 6)
 value = 33.0
@@ -38,19 +35,45 @@ texture_progress = ExtResource("2_esp00")
 tint_over = Color(0.0901961, 1, 1, 1)
 script = ExtResource("3_xljae")
 
-[node name="TimeLabel" type="Label" parent="Screen"]
+[node name="DeathScreen" type="Control" parent="Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_774fc")
+metadata/_edit_lock_ = true
+
+[node name="DeathLabel" type="Label" parent="Screen/DeathScreen"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.555
-anchor_right = 0.555
-offset_left = 32.4
-offset_top = 37.0
-offset_right = 334.4
-offset_bottom = 104.0
-grow_horizontal = 0
+anchor_left = 0.5
+anchor_top = 0.338
+anchor_right = 0.5
+anchor_bottom = 0.338
+offset_left = -106.0
+offset_top = -35.04
+offset_right = 150.0
+offset_bottom = 31.96
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 48
-text = "Время: 0:00"
-script = ExtResource("4_c84tb")
+text = "ЖИЗНь!!!"
 
-[node name="DeathScreen" parent="Screen" instance=ExtResource("6_gjj4b")]
+[node name="RestartButton" type="Button" parent="Screen/DeathScreen"]
 layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.502
+anchor_top = 0.5
+anchor_right = 0.502
+anchor_bottom = 0.5
+offset_left = -125.296
+offset_top = 77.0
+offset_right = 124.704
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RESTART"
+
+[connection signal="pressed" from="Screen/DeathScreen/RestartButton" to="Screen/DeathScreen" method="_on_restart_button_pressed"]
