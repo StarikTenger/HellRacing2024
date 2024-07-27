@@ -718,6 +718,10 @@ animations = [{
 
 [node name="Main" type="Node2D"]
 
+[node name="StartPosition" type="Node2D" parent="."]
+position = Vector2(236, 162)
+scale = Vector2(2, 2)
+
 [node name="Map" type="TileMap" parent="."]
 scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_ehn0e")

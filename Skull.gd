@@ -29,7 +29,6 @@ func _physics_process(delta):
 
 	# Friction
 	var direction_k : float = (1 - abs(velocity.normalized().dot(direction)))
-	print(direction_k)
 	velocity -= velocity * direction_k * friction_k * delta;
 
 	# Rotation control
@@ -48,6 +47,8 @@ func _physics_process(delta):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	position = $"../StartPosition".position
+	print(position)
 	get_node("SkullAnimation").play()
 	speed = basic_speed
 
