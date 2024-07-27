@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ls1igscc1j8n"]
+[gd_scene load_steps=7 format=3 uid="uid://ls1igscc1j8n"]
 
 [ext_resource type="Texture2D" uid="uid://dt8cagncdty0a" path="res://textures/tileset.png" id="1_25e4q"]
+[ext_resource type="PackedScene" uid="uid://ct3rujucjoo70" path="res://scenes/DestructibleObstacle.tscn" id="2_5k3n6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eyrws"]
 texture = ExtResource("1_25e4q")
@@ -726,3 +727,6 @@ script = SubResource("GDScript_u5xlg")
 [node name="FinishCollision" type="CollisionShape2D" parent="FinishPosition"]
 position = Vector2(813, 395)
 shape = SubResource("CircleShape2D_4vfus")
+
+[node name="DestructibleObstacle" parent="." instance=ExtResource("2_5k3n6")]
+position = Vector2(1196, 99)
