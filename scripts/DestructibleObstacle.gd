@@ -4,8 +4,8 @@ class_name DestructibleObject
 @export var durability: float = 100.0
 
 enum State {
-	ALIVE,
-	DYING
+	ACTIVE,
+	INACTIVE
 }
 
 var state: State
@@ -16,7 +16,7 @@ var sprite: Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	state = State.ALIVE
+	state = State.ACTIVE
 	health = durability
 	death_sound = $DestroySound
 	collider_shape = $ColliderShape
@@ -25,26 +25,26 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta : float):
 	match state:
-		State.ALIVE:
+		State.ACTIVE:
 			pass
-		State.DYING:
+		State.INACTIVE:
 			if not death_sound.is_playing():
-				queue_free()
+				# queue_free()
+				pass
 
 func hit(impulse: Vector2) -> float:
-	if state == State.ALIVE:
+	if state == State.ACTIVE:
 		var damage = impulse.length()
 		if damage >= health:
 			death_sound.play()
-			state = State.DYING
+			state = State.INACTIVE
 			collider_shape.disabled = true
 			sprite.visible = false
 			return health / damage
 		else:
 			health -= damage
 			return 1
-		return 1
 	else:
 		return 0
