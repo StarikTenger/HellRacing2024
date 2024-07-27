@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://gf04mfyu57dj"]
+[gd_scene load_steps=9 format=3 uid="uid://gf04mfyu57dj"]
 
 [ext_resource type="PackedScene" uid="uid://cl0bcqriec3jy" path="res://scenes/cooldown_bonus.tscn" id="1_yolfh"]
 [ext_resource type="Texture2D" uid="uid://dt8cagncdty0a" path="res://textures/tileset.png" id="2_nkwly"]
+[ext_resource type="PackedScene" uid="uid://d3j2l3d0w0yq" path="res://scenes/DestructibleObstacle.tscn" id="3_72g57"]
 
 [sub_resource type="GDScript" id="GDScript_5s4vk"]
 script/source = "extends Node2D
@@ -766,5 +767,8 @@ position = Vector2(805, 555)
 position = Vector2(956, 192)
 
 [node name="Bonuses" type="Node2D" parent="."]
+
+[node name="DestructibleObstacle" parent="." instance=ExtResource("3_72g57")]
+position = Vector2(1200, 180)
 
 [connection signal="body_entered" from="FinishPosition" to="FinishPosition" method="_on_body_entered"]

@@ -6,7 +6,7 @@ func _ready():
 	skull = $"../../../Skull"
 
 # Called when the node enters the scene tree for the first time.
-func _process(delta):
+func _process(_delta: float):
 	update()
 
 func update():
