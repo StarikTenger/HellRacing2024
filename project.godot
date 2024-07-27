@@ -15,10 +15,6 @@ run/main_scene="res://level_manager.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Global="*res://scripts/global/global.gd"
-
 [display]
 
 window/size/viewport_width=1920
