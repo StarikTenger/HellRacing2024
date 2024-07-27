@@ -1,7 +1,6 @@
 extends Label
 
-var time_elapsed := 0.0
+@onready var level_manager: LevelManager = $"/root/LevelManager"
 
 func _process(delta):
-	time_elapsed += delta
-	text = "Время: %d:%02d" % [floor(time_elapsed / 60), int(time_elapsed) % 60]
+	text = "Время: %d:%02d" % [floor(level_manager.current_time / 60), int(level_manager.current_time) % 60]
