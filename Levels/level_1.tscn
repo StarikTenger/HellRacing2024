@@ -914,12 +914,12 @@ position = Vector2(1100, 1413)
 [node name="CooldownPositions" type="Node2D" parent="."]
 
 [node name="pos1" type="Marker2D" parent="CooldownPositions"]
-position = Vector2(233, -38)
+position = Vector2(52, 409)
 
 [node name="pos2" type="Marker2D" parent="CooldownPositions"]
-position = Vector2(767, -55)
+position = Vector2(1257, 977)
 
 [node name="pos3" type="Marker2D" parent="CooldownPositions"]
-position = Vector2(534, 157)
+position = Vector2(972, 585)
 
 [node name="Bonuses" type="Node2D" parent="."]
