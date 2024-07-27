@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgliaq1l215wb"]
+[gd_scene load_steps=7 format=3 uid="uid://dp04ik1vg6un7"]
 
 [ext_resource type="PackedScene" path="res://scenes/MenuScreen.tscn" id="1_sesaw"]
 [ext_resource type="Texture2D" uid="uid://ben2e0mlkukio" path="res://textures/HUD/healthbarUnder.png" id="1_unjh5"]
