@@ -20,6 +20,7 @@ func restart_level():
 	var pos: Node2D = level.get_node("StartPosition")
 	$"HUD/Screen/DeathScreen".hide()
 	player.spawn(pos.position, 0)
+	level.spawn_bonus()
 
 func load_level(level_index):
 	assert(level_index >= 0 and level_index < loaded_levels.size())

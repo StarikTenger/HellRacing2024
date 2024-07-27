@@ -10,16 +10,21 @@ script/source = "extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for spawnpoint in $\"CooldownPositions\".get_children():
-		if spawnpoint is Marker2D:
-			var bonus : Area2D = bonus_scene.instantiate()
-			bonus.position = spawnpoint.position
-			add_child(bonus)
+	spawn_bonus()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+func spawn_bonus():
+	for bonus in $Bonuses.get_children():
+		bonus.queue_free()
+	for spawnpoint in $\"CooldownPositions\".get_children():
+		if spawnpoint is Marker2D:
+			var bonus : Area2D = bonus_scene.instantiate()
+			bonus.position = spawnpoint.position
+			$Bonuses.add_child(bonus)
 "
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eyrws"]
@@ -759,5 +764,7 @@ position = Vector2(767, -55)
 
 [node name="pos3" type="Marker2D" parent="CooldownPositions"]
 position = Vector2(534, 157)
+
+[node name="Bonuses" type="Node2D" parent="."]
 
 [connection signal="body_entered" from="FinishPosition" to="FinishPosition" method="_on_body_entered"]
