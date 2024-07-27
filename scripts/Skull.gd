@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Skull
 
 @export var force : float
 @export var basic_force : float = 200
@@ -7,11 +8,12 @@ extends CharacterBody2D
 @export var friction_k : float
 @export var basic_friction_k : float = 5
 @export var turn_smoothness : float = 0.1
-@export var target_rotation : float = 0.0
-@export var heat : float = 0.0 # Takes values from 0 to 1
 @export var overheat_time : float = 5 # Time in seconds to overheat (when heat = 1)
 
-@onready var death_screen: Control = $"../HUD/DeathScreen"
+var target_rotation : float
+var heat : float
+
+
 @onready var level_manager: Node2D = $".."
 
 enum State {
@@ -19,7 +21,7 @@ enum State {
 	DEAD
 }
 
-@onready var state: State = State.ALIVE
+var state: State
 
 var acceleration_on = true
 
@@ -34,33 +36,29 @@ func slow_down():
 	$Cooldown.start()
 
 func _physics_process(delta):
-	force = basic_force * pow(10, heat)
-	friction_k = basic_friction_k * pow(0.1, heat)
-	
-	# Acceleration
-	var direction : Vector2 = Vector2(1, 0).rotated(rotation)
-	if acceleration_on :
-		velocity += direction * force * delta
-		change_speed(delta)
+	match state:
+		State.ALIVE:
+			force = basic_force * pow(10, heat)
+			friction_k = basic_friction_k * pow(0.1, heat)
+			
+			# Acceleration
+			var direction : Vector2 = Vector2(1, 0).rotated(rotation)
+			if acceleration_on :
+				velocity += direction * force * delta
+				change_speed(delta)
 
-	# Friction
-	var direction_k : float = (1 - abs(velocity.normalized().dot(direction)))
-	velocity -= velocity * direction_k * friction_k * delta;
-	velocity += direction * direction_k * delta * basic_force
-
-	# Rotation control
-	if Input.is_action_pressed("left"):
-		target_rotation -= turn_speed * delta
-	if Input.is_action_pressed("right"):
-		target_rotation += turn_speed * delta
-	
-	rotation = lerp_angle(rotation, target_rotation, turn_smoothness)
-	
-	# Test slowdown
-	if Input.is_action_pressed("down"):
-		slow_down()
-	
-	move_and_slide()
+			# Friction
+			var direction_k : float = (1 - abs(velocity.normalized().dot(direction)))
+			velocity -= velocity * direction_k * friction_k * delta;
+			velocity += direction * direction_k * delta * basic_force
+			
+			rotation = lerp_angle(rotation, target_rotation, turn_smoothness)
+			
+			move_and_slide()
+		State.DEAD:
+			pass
+		_:
+			assert(false)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -69,7 +67,20 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	match state:
+		State.DEAD:
+			pass
+		State.ALIVE:
+			# Test slowdown, TODO remove
+			if Input.is_action_pressed("down"):
+				slow_down()
+			# Rotation control
+			if Input.is_action_pressed("left"):
+				target_rotation -= turn_speed * delta
+			if Input.is_action_pressed("right"):
+				target_rotation += turn_speed * delta
+			if Input.is_action_just_pressed("restart"):
+				call_restart()
 
 
 func _on_cooldown_timeout():
@@ -81,17 +92,21 @@ func _on_tile_detection_body_shape_entered(body_rid, body, body_shape_index, loc
 		die()
 
 func die():
-	
-	set_physics_process(false)
-	set_process(false)
-	death_screen.show_death_screen()
+	state = State.DEAD
+	level_manager.death()
 
-func reach_goal():
+func call_restart():
 	# Вызвать следующий уровень из менеджера уровней
-	level_manager.next_level()
+	level_manager.restart_level()
+
+func goal_reached():
+	# Вызвать следующий уровень из менеджера уровней
+	level_manager.goal_reached()
 
 func spawn(pos: Vector2, rot: float) -> void:
 	state = State.ALIVE
 	position = pos
 	velocity = Vector2(0, 0)
 	rotation = rot
+	target_rotation = rot
+	heat = 0
