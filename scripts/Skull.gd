@@ -1,5 +1,4 @@
 extends CharacterBody2D
-class_name Skull
 
 class_name Skull
 
@@ -36,12 +35,6 @@ func slow_down():
 	acceleration_on = false
 	heat = 0
 	$Cooldown.start()
-
-
-func die():
-	set_physics_process(false)
-	set_process(false)
-	death_screen.show_death_screen()
 
 func _physics_process(delta):
 	match state:

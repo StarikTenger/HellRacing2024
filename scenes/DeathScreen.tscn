@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://b30gwpehrqnep"]
+
+[ext_resource type="Script" path="res://scripts/DeathScreen.gd" id="1_te3fr"]
+
+[node name="DeathScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_te3fr")
+metadata/_edit_lock_ = true
+
+[node name="DeathLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.338
+anchor_right = 0.5
+anchor_bottom = 0.338
+offset_left = -106.0
+offset_top = -35.04
+offset_right = 150.0
+offset_bottom = 31.96
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "ЖИЗНь!!!"
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.502
+anchor_top = 0.5
+anchor_right = 0.502
+anchor_bottom = 0.5
+offset_left = -125.296
+offset_top = 77.0
+offset_right = 124.704
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RESTART"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

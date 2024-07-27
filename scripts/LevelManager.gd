@@ -14,11 +14,11 @@ func _ready():
 	for i in range(len(levels)):
 		loaded_levels.append(load(levels[i]))
 	load_level(current_level_index)
-	death_screen = $"HUD/DeathScreen"
+	death_screen = $"HUD/Screen/DeathScreen"
 
 func restart_level():
 	var pos: Node2D = level.get_node("StartPosition")
-	$"HUD/DeathScreen".hide()
+	$"HUD/Screen/DeathScreen".hide()
 	player.spawn(pos.position, 0)
 
 func load_level(level_index):

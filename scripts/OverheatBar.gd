@@ -1,6 +1,6 @@
 extends TextureProgressBar
 
-@export var skull: Skull
+@export var skull: CharacterBody2D
 
 func _ready():
 	skull = $"../../../Skull"
