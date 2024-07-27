@@ -68,7 +68,10 @@ func _ready():
 	print(position)
 	get_node("SkullAnimation").play()
 	
-	
+func _process(delta):
+	var direction : Vector2 = Vector2(1, 0).rotated(rotation)
+	$FireParticles.process_material.direction = Vector3(-1, 0, 0)
+
 func _on_cooldown_timeout():
 	acceleration_on = true
 
