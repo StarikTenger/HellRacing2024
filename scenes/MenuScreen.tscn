@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://6lcus2pm71mo"]
+
+[node name="MenuScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 39.0
+offset_right = 172.0
+offset_bottom = 62.0
+text = "TEst Menu"

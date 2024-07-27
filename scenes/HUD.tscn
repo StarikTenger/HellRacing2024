@@ -1,26 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgliaq1l215wb"]
+[gd_scene load_steps=7 format=3 uid="uid://bgliaq1l215wb"]
 
+[ext_resource type="PackedScene" uid="uid://6lcus2pm71mo" path="res://scenes/MenuScreen.tscn" id="1_sesaw"]
 [ext_resource type="Texture2D" uid="uid://ben2e0mlkukio" path="res://textures/HUD/healthbarUnder.png" id="1_unjh5"]
 [ext_resource type="Texture2D" uid="uid://dpul6hjk02dnx" path="res://textures/HUD/healthbarProgress.png" id="2_esp00"]
 [ext_resource type="Script" path="res://scripts/OverheatBar.gd" id="3_xljae"]
-[ext_resource type="Script" path="res://scenes/TimeLabel.gd" id="4_c84tb"]
-
-[sub_resource type="GDScript" id="GDScript_774fc"]
-script/source = "extends Control
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	hide()
-
-
-func show_death_screen():
-	show()
-
-
-func _on_restart_button_pressed():
-	get_tree().reload_current_scene()
-"
+[ext_resource type="Script" path="res://scripts/TimeLabel.gd" id="4_c84tb"]
+[ext_resource type="PackedScene" uid="uid://scffre520tww" path="res://scenes/DeathScreen.tscn" id="6_gjj4b"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -32,6 +17,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
+
+[node name="MenuScreen" parent="Screen" instance=ExtResource("1_sesaw")]
+layout_mode = 1
 
 [node name="OverheatBar" type="TextureProgressBar" parent="Screen"]
 layout_mode = 1
@@ -64,45 +52,5 @@ theme_override_font_sizes/font_size = 48
 text = "Время: 0:00"
 script = ExtResource("4_c84tb")
 
-[node name="DeathScreen" type="Control" parent="Screen"]
+[node name="DeathScreen" parent="Screen" instance=ExtResource("6_gjj4b")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = SubResource("GDScript_774fc")
-metadata/_edit_lock_ = true
-
-[node name="DeathLabel" type="Label" parent="Screen/DeathScreen"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.338
-anchor_right = 0.5
-anchor_bottom = 0.338
-offset_left = -106.0
-offset_top = -35.04
-offset_right = 150.0
-offset_bottom = 31.96
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 48
-text = "ЖИЗНь!!!"
-
-[node name="RestartButton" type="Button" parent="Screen/DeathScreen"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.502
-anchor_top = 0.5
-anchor_right = 0.502
-anchor_bottom = 0.5
-offset_left = -125.296
-offset_top = 77.0
-offset_right = 124.704
-offset_bottom = 176.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "RESTART"
-
-[connection signal="pressed" from="Screen/DeathScreen/RestartButton" to="Screen/DeathScreen" method="_on_restart_button_pressed"]
