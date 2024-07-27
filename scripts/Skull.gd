@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Skull
+
 @export var force : float
 @export var basic_force : float = 200
 @export var turn_speed : float = 5
@@ -11,7 +13,7 @@ extends CharacterBody2D
 @export var heat : float = 0.0 # Takes values from 0 to 1
 @export var overheat_time : float = 5 # Time in seconds to overheat (when heat = 1)
 
-@onready var death_screen = get_node("../CanvasLayer/DeathScreen")
+@onready var death_screen = $"../HUD/Screen/DeathScreen"
 
 var acceleration_on = true
 
@@ -24,6 +26,12 @@ func slow_down():
 	acceleration_on = false
 	heat = 0
 	$Cooldown.start()
+	
+
+func die():
+	set_physics_process(false)
+	set_process(false)
+	death_screen.show_death_screen()
 
 func _physics_process(delta):
 	force = basic_force * pow(10, heat)
@@ -61,12 +69,6 @@ func _ready():
 	get_node("SkullAnimation").play()
 	
 	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_cooldown_timeout():
 	acceleration_on = true
 
@@ -74,8 +76,3 @@ func _on_cooldown_timeout():
 func _on_tile_detection_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if body is TileMap:
 		die()
-
-func die():
-	set_physics_process(false)
-	set_process(false)
-	death_screen.show_death_screen()
