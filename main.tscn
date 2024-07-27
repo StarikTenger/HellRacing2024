@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ce0kaccb40074"]
 
-[ext_resource type="PackedScene" uid="uid://bgliaq1l215wb" path="res://scenes/HUD.tscn" id="3_jtxae"]
+[ext_resource type="PackedScene" uid="uid://dd1bnvw7rawck" path="res://scenes/HUD.tscn" id="3_jtxae"]
 [ext_resource type="Texture2D" uid="uid://dt8cagncdty0a" path="res://textures/tileset.png" id="4_3c44o"]
 [ext_resource type="PackedScene" uid="uid://c1g2kesrcewpi" path="res://scenes/Skull.tscn" id="5_th20l"]
 
