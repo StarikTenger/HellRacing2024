@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmnw0uey7vp8k"]
+
+[ext_resource type="Texture2D" uid="uid://dqp8qnf14fv5" path="res://textures/obstacle.png" id="1_ysuvu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_soup3"]
+
+[node name="DestructibleObstacle" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_soup3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ysuvu")
