@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ny17ke668llt"]
+[gd_scene load_steps=9 format=3 uid="uid://ny17ke668llt"]
 
 [ext_resource type="Texture2D" uid="uid://dt8cagncdty0a" path="res://textures/tileset.png" id="1_8snr4"]
 [ext_resource type="PackedScene" uid="uid://cl0bcqriec3jy" path="res://scenes/cooldown_bonus.tscn" id="1_of7a2"]
+[ext_resource type="Texture2D" uid="uid://di5xgdg40jpga" path="res://textures/finish_point.jpg" id="3_pqfaa"]
 
 [sub_resource type="GDScript" id="GDScript_5s4vk"]
 script/source = "extends Node2D
@@ -731,7 +732,7 @@ func _on_body_entered(body):
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4vfus"]
-radius = 19.0
+radius = 87.5818
 
 [node name="Level1" type="Node2D"]
 script = SubResource("GDScript_5s4vk")
@@ -748,10 +749,17 @@ position = Vector2(-168, 123)
 scale = Vector2(2, 2)
 
 [node name="FinishPosition" type="Area2D" parent="."]
+position = Vector2(203.873, 98.6055)
+scale = Vector2(0.563252, 0.563253)
 script = SubResource("GDScript_u5xlg")
 
+[node name="Sprite2D" type="Sprite2D" parent="FinishPosition"]
+position = Vector2(913.999, 192)
+scale = Vector2(0.332334, 0.332)
+texture = ExtResource("3_pqfaa")
+
 [node name="FinishCollision" type="CollisionShape2D" parent="FinishPosition"]
-position = Vector2(908, 187)
+position = Vector2(914, 192)
 shape = SubResource("CircleShape2D_4vfus")
 
 [node name="CooldownPositions" type="Node2D" parent="."]

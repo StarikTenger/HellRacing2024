@@ -6,7 +6,7 @@ extends Node2D
 
 var loaded_levels = []
 var current_level_index = 0
-var level: Node2D = null
+var current_level: Node2D = null
 var player = null
 
 func _ready():
@@ -17,17 +17,21 @@ func _ready():
 	death_screen = $"HUD/Screen/DeathScreen"
 
 func restart_level():
-	var pos: Node2D = level.get_node("StartPosition")
+	var pos: Node2D = current_level.get_node("StartPosition")
 	$"HUD/Screen/DeathScreen".hide()
 	player.spawn(pos.position, 0)
-	level.spawn_bonus()
+	current_level.spawn_bonus()
+	
+func restart_game():
+	load_level(0)
 
 func load_level(level_index):
+	current_level_index = level_index
 	assert(level_index >= 0 and level_index < loaded_levels.size())
 	var level_path: PackedScene = loaded_levels[level_index]
-	remove_child(level)
-	level = level_path.instantiate()
-	add_child(level)
+	remove_child(current_level)
+	current_level = level_path.instantiate()
+	add_child(current_level)
 	restart_level()
 
 func goal_reached() -> void:
@@ -41,6 +45,7 @@ func death() -> void:
 
 func next_level():
 	current_level_index += 1
+	print(current_level_index)
 	if current_level_index < levels.size():
 		load_level(current_level_index)
 	else:
