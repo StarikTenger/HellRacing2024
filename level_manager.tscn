@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://wqp2ggsa5u76"]
+[gd_scene load_steps=7 format=3 uid="uid://wqp2ggsa5u76"]
 
 [ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_5702t"]
 [ext_resource type="PackedScene" uid="uid://dp04ik1vg6un7" path="res://scenes/HUD.tscn" id="1_ihaar"]
 [ext_resource type="PackedScene" uid="uid://c1g2kesrcewpi" path="res://scenes/Skull.tscn" id="2_103lw"]
+[ext_resource type="AudioStream" uid="uid://b1wjlgcd8x6jq" path="res://music/hell-rider-1.ogg" id="4_q8urm"]
+[ext_resource type="AudioStream" uid="uid://daiqg84urug50" path="res://music/hell-rider-2.ogg" id="5_0oc6q"]
+[ext_resource type="Script" path="res://scripts/MusicLoud.gd" id="6_2r3nl"]
 
 [node name="LevelManager" type="Node2D"]
 script = ExtResource("1_5702t")
@@ -20,3 +23,13 @@ remote_path = NodePath("../../Camera2D")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(36, 214)
 scale = Vector2(0.999999, 0.999999)
+
+[node name="MusicQuiet" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_q8urm")
+volume_db = -16.596
+autoplay = true
+
+[node name="MusicLoud" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0oc6q")
+autoplay = true
+script = ExtResource("6_2r3nl")

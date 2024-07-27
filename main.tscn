@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://buyx0w1bcgfvc"]
+[gd_scene load_steps=8 format=3 uid="uid://buyx0w1bcgfvc"]
 
 [ext_resource type="PackedScene" uid="uid://dp04ik1vg6un7" path="res://scenes/HUD.tscn" id="3_jtxae"]
 [ext_resource type="PackedScene" uid="uid://c1g2kesrcewpi" path="res://scenes/Skull.tscn" id="5_th20l"]
 [ext_resource type="PackedScene" uid="uid://cl0bcqriec3jy" path="res://scenes/cooldown_bonus.tscn" id="5_wl3cc"]
-[ext_resource type="PackedScene" uid="uid://ct3rujucjoo70" path="res://scenes/DestructibleObstacle.tscn" id="7_pwhgn"]
+[ext_resource type="PackedScene" uid="uid://c84gf4e4nd07m" path="res://scenes/DestructibleObstacle.tscn" id="7_pwhgn"]
 
 [sub_resource type="GDScript" id="GDScript_p7nqn"]
 script/source = "extends Node2D
