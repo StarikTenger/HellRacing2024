@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://Map.gd" id="3_l8vxo"]
 [ext_resource type="PackedScene" uid="uid://c1g2kesrcewpi" path="res://scenes/Skull.tscn" id="5_th20l"]
 [ext_resource type="PackedScene" uid="uid://cl0bcqriec3jy" path="res://scenes/cooldown_bonus.tscn" id="5_wl3cc"]
+[ext_resource type="PackedScene" uid="uid://ct3rujucjoo70" path="res://scenes/DestructibleObstacle.tscn" id="7_pwhgn"]
 
 [sub_resource type="TileSet" id="TileSet_ehn0e"]
 tile_size = Vector2i(50, 50)
@@ -46,3 +47,7 @@ position = Vector2(955, 184)
 
 [node name="pos3" type="Marker2D" parent="CooldownPositions"]
 position = Vector2(1353, 513)
+
+[node name="DestructibleObstacle" parent="." instance=ExtResource("7_pwhgn")]
+position = Vector2(507, 51)
+durability = 500.0

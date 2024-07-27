@@ -65,7 +65,17 @@ func _physics_process(delta):
 
 			rotation = lerp_angle(rotation, target_rotation, turn_smoothness)
 
-			move_and_slide()
+            var collision: KinematicCollision2D = move_and_collide(velocity * delta)
+
+            if collision:
+                var collider = collision.get_collider()
+                if collider is DestructibleObject:
+                    var impulse: Vector2 = velocity.project(collision.get_normal())
+                    var delay = (collider as DestructibleObject).hit(impulse)
+                    print(delay)
+                    velocity -= impulse * delay
+                else:
+                    velocity -= velocity.project(collision.get_normal())
 		State.DEAD:
 			pass
 		_:
