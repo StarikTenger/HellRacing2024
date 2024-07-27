@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ben2e0mlkukio" path="res://textures/HUD/healthbarUnder.png" id="1_unjh5"]
 [ext_resource type="Texture2D" uid="uid://dpul6hjk02dnx" path="res://textures/HUD/healthbarProgress.png" id="2_esp00"]
+[ext_resource type="Script" path="res://scripts/OverheatBar.gd" id="3_xljae"]
 
 [sub_resource type="GDScript" id="GDScript_ncir6"]
 script/source = "extends CanvasLayer
@@ -47,6 +48,7 @@ value = 33.0
 texture_under = ExtResource("1_unjh5")
 texture_progress = ExtResource("2_esp00")
 tint_over = Color(0.0901961, 1, 1, 1)
+script = ExtResource("3_xljae")
 
 [node name="DeathScreen" type="Control" parent="."]
 layout_mode = 3
