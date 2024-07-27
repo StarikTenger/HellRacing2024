@@ -20,11 +20,13 @@ func restart_level():
 	var pos: Node2D = current_level.get_node("StartPosition")
 	$"HUD/Screen/DeathScreen".hide()
 	player.spawn(pos.position, 0)
+	current_level.spawn_bonus()
 	
 func restart_game():
-	load_level(0);
+	load_level(0)
 
 func load_level(level_index):
+	current_level_index = level_index
 	assert(level_index >= 0 and level_index < loaded_levels.size())
 	var level_path: PackedScene = loaded_levels[level_index]
 	remove_child(current_level)
@@ -43,6 +45,7 @@ func death() -> void:
 
 func next_level():
 	current_level_index += 1
+	print(current_level_index)
 	if current_level_index < levels.size():
 		load_level(current_level_index)
 	else:

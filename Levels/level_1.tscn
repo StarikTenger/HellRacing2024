@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://ny17ke668llt"]
 
 [ext_resource type="Texture2D" uid="uid://dt8cagncdty0a" path="res://textures/tileset.png" id="1_8snr4"]
-[ext_resource type="PackedScene" uid="uid://csiw2a4d4etml" path="res://scenes/cooldown_bonus.tscn" id="1_of7a2"]
+[ext_resource type="PackedScene" uid="uid://cl0bcqriec3jy" path="res://scenes/cooldown_bonus.tscn" id="1_of7a2"]
 [ext_resource type="Texture2D" uid="uid://di5xgdg40jpga" path="res://textures/finish_point.jpg" id="3_pqfaa"]
 
 [sub_resource type="GDScript" id="GDScript_5s4vk"]
@@ -11,16 +11,21 @@ script/source = "extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for spawnpoint in $\"CooldownPositions\".get_children():
-		if spawnpoint is Marker2D:
-			var bonus : Area2D = bonus_scene.instantiate()
-			bonus.position = spawnpoint.position
-			add_child(bonus)
+	spawn_bonus()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+func spawn_bonus():
+	for bonus in $Bonuses.get_children():
+		bonus.queue_free()
+	for spawnpoint in $\"CooldownPositions\".get_children():
+		if spawnpoint is Marker2D:
+			var bonus : Area2D = bonus_scene.instantiate()
+			bonus.position = spawnpoint.position
+			$Bonuses.add_child(bonus)
 "
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eyrws"]
@@ -719,7 +724,7 @@ sources/0 = SubResource("TileSetAtlasSource_eyrws")
 [sub_resource type="GDScript" id="GDScript_u5xlg"]
 script/source = "extends Area2D
 
-@onready var player = $\"../../../Skull\"
+@onready var player = $\"../../Skull\"
 
 func _on_body_entered(body):
 	if body == player:
@@ -743,17 +748,17 @@ layer_0/tile_data = PackedInt32Array(-196612, 65536, 1, -131076, 65536, 1, -6554
 position = Vector2(-168, 123)
 scale = Vector2(2, 2)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(718.685, 206.75)
-scale = Vector2(0.187188, 0.187)
-texture = ExtResource("3_pqfaa")
-
-[node name="FinishPosition" type="Area2D" parent="Sprite2D"]
-position = Vector2(-2750.24, -578.313)
-scale = Vector2(3.00902, 3.01205)
+[node name="FinishPosition" type="Area2D" parent="."]
+position = Vector2(203.873, 98.6055)
+scale = Vector2(0.563252, 0.563253)
 script = SubResource("GDScript_u5xlg")
 
-[node name="FinishCollision" type="CollisionShape2D" parent="Sprite2D/FinishPosition"]
+[node name="Sprite2D" type="Sprite2D" parent="FinishPosition"]
+position = Vector2(913.999, 192)
+scale = Vector2(0.332334, 0.332)
+texture = ExtResource("3_pqfaa")
+
+[node name="FinishCollision" type="CollisionShape2D" parent="FinishPosition"]
 position = Vector2(914, 192)
 shape = SubResource("CircleShape2D_4vfus")
 
@@ -768,4 +773,6 @@ position = Vector2(767, -55)
 [node name="pos3" type="Marker2D" parent="CooldownPositions"]
 position = Vector2(534, 157)
 
-[connection signal="body_entered" from="Sprite2D/FinishPosition" to="Sprite2D/FinishPosition" method="_on_body_entered"]
+[node name="Bonuses" type="Node2D" parent="."]
+
+[connection signal="body_entered" from="FinishPosition" to="FinishPosition" method="_on_body_entered"]
