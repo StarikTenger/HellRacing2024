@@ -104,9 +104,9 @@ func _on_tile_detection_body_shape_entered(body_rid, body, body_shape_index, loc
 		die()
 
 func die():
+	state = State.DEAD
+	level_manager.death()
 	stop_particles()
-	set_physics_process(false)
-	set_process(false)
 
 func call_restart():
 	# Вызвать следующий уровень из менеджера уровней
@@ -123,3 +123,4 @@ func spawn(pos: Vector2, rot: float) -> void:
 	rotation = rot
 	target_rotation = rot
 	heat = 0
+	start_particles()
