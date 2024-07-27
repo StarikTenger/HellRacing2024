@@ -12,6 +12,7 @@ extends CharacterBody2D
 @export var overheat_time : float = 5 # Time in seconds to overheat (when heat = 1)
 
 @onready var death_screen = $"../HUD/DeathScreen"
+@onready var level_manager = $".."
 
 var acceleration_on = true
 
@@ -56,10 +57,7 @@ func _physics_process(delta):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	position = $"../StartPosition".position
-	print(position)
 	get_node("SkullAnimation").play()
-	
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -79,3 +77,7 @@ func die():
 	set_physics_process(false)
 	set_process(false)
 	death_screen.show_death_screen()
+
+func reach_goal():
+	# Вызвать следующий уровень из менеджера уровней
+	level_manager.next_level()
