@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var player : CharacterBody2D = $"../Skull"
+@onready var player : Skull = $"../Skull"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,4 +15,6 @@ func _process(delta):
 func _on_body_entered(body):
 	if body == player:
 		print("enter")
+		player.slow_down()
+		queue_free()
 	
