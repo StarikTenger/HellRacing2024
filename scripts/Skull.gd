@@ -54,10 +54,17 @@ func start_particles():
 
 func emit_smoke_particles():
 	$SmokeParticles.emitting = true
+
+func stop_smoke_particles():
+	$SmokeParticles.emitting = false
+	
+func delete_particles() -> void:
+	$FireParticles.restart()
+	$FireParticles2.restart()
+	$SmokeParticles.restart()
 	
 
 func _physics_process(delta):
-	
 	match state:
 		State.ALIVE:
 			force = basic_force * pow(10, heat)
@@ -96,6 +103,7 @@ func _physics_process(delta):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("_ready player")
 	get_node("SkullAnimation").play()
 	
 
@@ -151,5 +159,8 @@ func spawn(pos: Vector2, rot: float) -> void:
 	rotation = rot
 	target_rotation = rot
 	heat = 0
+	acceleration_on = true
+	delete_particles();
+	stop_smoke_particles()
 	start_particles()
 
