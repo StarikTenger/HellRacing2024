@@ -883,6 +883,9 @@ texture_region_size = Vector2i(250, 250)
 8:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:1/0/physics_layer_0/angular_velocity = 0.0
 8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 20, 72, -34, 102, 106, 14, 98, -125, 94, -74, -92)
+18:6/0 = 0
+18:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+18:6/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_ctupp"]
 tile_size = Vector2i(250, 250)
