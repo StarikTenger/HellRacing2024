@@ -14,6 +14,9 @@ var death_sound: AudioStreamPlayer2D
 var collider_shape: CollisionShape2D
 var sprite: Sprite2D
 
+func destroy():
+	queue_free()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	state = State.ACTIVE
@@ -33,18 +36,3 @@ func _process(_delta : float):
 			if not death_sound.is_playing():
 				# queue_free()
 				pass
-
-func hit(impulse: Vector2) -> float:
-	if state == State.ACTIVE:
-		var damage = impulse.length()
-		if damage >= health:
-			death_sound.play()
-			state = State.INACTIVE
-			collider_shape.disabled = true
-			sprite.visible = false
-			return health / damage
-		else:
-			health -= damage
-			return 1
-	else:
-		return 0

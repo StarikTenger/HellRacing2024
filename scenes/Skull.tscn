@@ -97,7 +97,7 @@ alpha_curve = SubResource("CurveTexture_8nx71")
 
 [node name="Skull" type="CharacterBody2D"]
 scale = Vector2(0.3, 0.3)
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_ocvkw")
 
 [node name="TileDetection" type="Area2D" parent="."]
