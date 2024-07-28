@@ -1,7 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://c1g2kesrcewpi"]
 
 [ext_resource type="Script" path="res://scripts/Skull.gd" id="1_ocvkw"]
-[ext_resource type="Texture2D" uid="uid://c5r6l30mao3yv" path="res://textures/smoke_particle.png" id="2_n42io"]
 [ext_resource type="Texture2D" uid="uid://dvqsp4k1cpvgt" path="res://textures/particles.png" id="3_v604j"]
 [ext_resource type="Texture2D" uid="uid://cdhtmq1pgg7eu" path="res://textures/SkullFin.png" id="4_v1pm0"]
 [ext_resource type="Texture2D" uid="uid://batm4wui0xdly" path="res://textures/particles_smoke.png" id="5_8li0s"]
@@ -11,8 +10,14 @@
 radius = 56.6667
 height = 226.667
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ytjjw"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 4
+particles_anim_loop = false
+
 [sub_resource type="Curve" id="Curve_p02te"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.529822), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_gv40b"]
@@ -21,10 +26,14 @@ curve = SubResource("Curve_p02te")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_il0xj"]
 particle_flag_disable_z = true
 spread = 180.0
-initial_velocity_min = 325.3
-initial_velocity_max = 427.71
+initial_velocity_min = 275.66
+initial_velocity_max = 275.66
 gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.3
 alpha_curve = SubResource("CurveTexture_gv40b")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tyr4l"]
 radius = 86.6667
@@ -138,11 +147,13 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_e83ju")
 
 [node name="SmokeParticles" type="GPUParticles2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_ytjjw")
 position = Vector2(-66.6667, 0)
 emitting = false
 amount = 24
 process_material = SubResource("ParticleProcessMaterial_il0xj")
-texture = ExtResource("2_n42io")
+texture = ExtResource("5_8li0s")
 
 [node name="SkullCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.49587e-13)

@@ -19,6 +19,7 @@ func _on_body_entered(body):
 		print("enter")
 		player.slow_down()
 		$AnimatedSprite2D.play("splash")
+		$SplashParticles.restart()
 		await $AnimatedSprite2D.animation_finished
 		queue_free()
 	
