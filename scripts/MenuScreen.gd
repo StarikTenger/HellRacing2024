@@ -58,6 +58,9 @@ func update_leaderboard_grid(dict: Dictionary):
 	leaderboard_grid.add_child(name_header)
 	leaderboard_grid.add_child(score_header)
 	
+	if not dict:
+		return
+	
 	var i = 1
 	for row in dict["items"]:
 		if i > limit:
