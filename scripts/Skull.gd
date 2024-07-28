@@ -131,6 +131,7 @@ func _on_tile_detection_body_shape_entered(body_rid, body, body_shape_index, loc
 
 func die():
 	state = State.DEAD
+	$FireSound.stop()
 	level_manager.death()
 	stop_particles()
 
@@ -149,5 +150,6 @@ func spawn(pos: Vector2, rot: float) -> void:
 	rotation = rot
 	target_rotation = rot
 	heat = 0
+	$FireSound.play()
 	start_particles()
 
