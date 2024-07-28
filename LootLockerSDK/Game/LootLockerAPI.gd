@@ -246,7 +246,8 @@ func _ListLeaderboard(leaderboard_key) -> LootLockerGetLeaderboard:
 		httpRequest.poll()
 		await get_tree().process_frame
 	
-	assert(httpRequest.get_status() == HTTPClient.STATUS_CONNECTED)
+	if not httpRequest.get_status() == HTTPClient.STATUS_CONNECTED:
+		return
 	
 	err = httpRequest.request(HTTPClient.METHOD_GET, endpoint, headers, body)
 

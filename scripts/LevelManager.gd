@@ -110,7 +110,8 @@ func death() -> void:
 
 func refresh_leader_board() -> Dictionary:
 	var getLeaderboard : LootLockerGetLeaderboard = await LootLockerApi._ListLeaderboard(leaderboard_key)
-	# TODO: beautiful printing on screen that LB
+	if not getLeaderboard:
+		return current_leader_board
 	return JSON.parse_string(getLeaderboard.ToJson())
 
 
