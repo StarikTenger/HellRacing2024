@@ -10,10 +10,13 @@ var current_level: Node2D = null
 var player: Skull = null
 
 var is_game_active: bool = true;
+var is_dead: bool = false;
 var current_time: float = 0 # В секундах
 
 signal dead;
 signal respawned;
+signal paused;
+signal resumed;
 
 func _ready():
 	player = $Skull
@@ -25,12 +28,39 @@ func _process(delta):
 	if is_game_active:
 		current_time += delta
 
+func _input(event):
+	if event.is_action_pressed("restart"):
+		restart_level()
+	if event.is_action_pressed("pause"):
+		change_game_state()
+
+func change_game_state():
+	if is_dead:
+		return
+	
+	if is_game_active:
+		pause_game()
+	else:
+		resume_game()
+
+func pause_game():
+	player.pause()
+	is_game_active = false
+	paused.emit()
+	
+func resume_game():
+	player.resume()
+	is_game_active = true
+	resumed.emit()
+
 func restart_level():
 	load_level(current_level_index)
+	resumed.emit()
 	
 func restart_game():
 	load_level(0)
 	current_time = 0
+	resumed.emit()
 	
 
 func load_level(level_index):
@@ -46,6 +76,7 @@ func load_level(level_index):
 	player.spawn(pos.position, 0)
 	current_level.spawn_bonus()
 	is_game_active = true
+	is_dead = false;
 	respawned.emit()
 
 func goal_reached() -> void:
@@ -55,6 +86,7 @@ func victory() -> void:
 	is_game_active = false
 	
 func death() -> void:
+	is_dead = true;
 	dead.emit();
 	is_game_active = false
 

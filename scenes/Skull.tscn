@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Skull.gd" id="1_ocvkw"]
 [ext_resource type="Texture2D" uid="uid://c5r6l30mao3yv" path="res://textures/smoke_particle.png" id="2_n42io"]
 [ext_resource type="Texture2D" uid="uid://d0b8wehy7lv7" path="res://textures/fire_particle.png" id="4_qyghn"]
-[ext_resource type="Texture2D" uid="uid://cdhtmq1pgg7eu" path="res://textures/SkullFin.png" id="4_v1pm0"]
+[ext_resource type="Texture2D" path="res://textures/SkullFin.png" id="4_v1pm0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e83ju"]
 radius = 56.6667
