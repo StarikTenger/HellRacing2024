@@ -64,6 +64,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="InfoLabelBackground" type="Sprite2D" parent="LabelsContainer"]
+modulate = Color(0.59677, 0.438744, 0.447409, 1)
 position = Vector2(158, 81.5)
 scale = Vector2(1.05251, 1.12)
 texture = ExtResource("2_c30q0")
@@ -102,6 +103,7 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
 [node name="Settings" type="Sprite2D" parent="SettingsContainer"]
+modulate = Color(0.536784, 0.453923, 0.508075, 1)
 position = Vector2(281.5, 152.88)
 scale = Vector2(1.45346, 1.76881)
 texture = ExtResource("5_yfbhb")
@@ -163,6 +165,7 @@ offset_right = 268.48
 offset_bottom = 223.6
 
 [node name="Leaderboard" type="Sprite2D" parent="LeaderboardContainer"]
+modulate = Color(0.475467, 0.477209, 0.48894, 1)
 position = Vector2(280, 272)
 scale = Vector2(1.43198, 2.96)
 texture = ExtResource("6_7fdkx")
