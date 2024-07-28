@@ -1,11 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://c1g2kesrcewpi"]
+[gd_scene load_steps=34 format=3 uid="uid://c1g2kesrcewpi"]
 
 [ext_resource type="Script" path="res://scripts/Skull.gd" id="1_ocvkw"]
 [ext_resource type="Texture2D" uid="uid://c5r6l30mao3yv" path="res://textures/smoke_particle.png" id="2_n42io"]
 [ext_resource type="Texture2D" uid="uid://d0b8wehy7lv7" path="res://textures/fire_particle.png" id="4_qyghn"]
+[ext_resource type="Texture2D" uid="uid://cdhtmq1pgg7eu" path="res://textures/SkullFin.png" id="4_v1pm0"]
 [ext_resource type="AudioStream" uid="uid://b6fq6bunl1p2w" path="res://sfx/fire.ogg" id="6_2v2vg"]
 [ext_resource type="AudioStream" uid="uid://dminud74g8fu1" path="res://sfx/steam.ogg" id="6_f2u1h"]
-[ext_resource type="Texture2D" path="res://textures/SkullFin.png" id="4_v1pm0"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e83ju"]
 radius = 56.6667
 height = 226.667
@@ -57,14 +58,113 @@ alpha_curve = SubResource("CurveTexture_do2vr")
 radius = 86.6667
 height = 266.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ks5f"]
+atlas = ExtResource("4_v1pm0")
+region = Rect2(0, 800, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77hwh"]
+atlas = ExtResource("4_v1pm0")
+region = Rect2(800, 800, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt3gd"]
+atlas = ExtResource("4_v1pm0")
+region = Rect2(1600, 800, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hwt1"]
+atlas = ExtResource("4_v1pm0")
+region = Rect2(2400, 800, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uidh6"]
+atlas = ExtResource("4_v1pm0")
+region = Rect2(3200, 800, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ays7m"]
+atlas = ExtResource("4_v1pm0")
+region = Rect2(4000, 800, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h8qk"]
+atlas = ExtResource("4_v1pm0")
+region = Rect2(0, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o7od"]
+atlas = ExtResource("4_v1pm0")
+region = Rect2(800, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veve3"]
+atlas = ExtResource("4_v1pm0")
+region = Rect2(1600, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ueaay"]
+atlas = ExtResource("4_v1pm0")
+region = Rect2(2400, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lsmc"]
+atlas = ExtResource("4_v1pm0")
+region = Rect2(3200, 0, 800, 800)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_oo011"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_v1pm0")
+"texture": SubResource("AtlasTexture_5ks5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77hwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt3gd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hwt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uidh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ays7m")
+}],
+"loop": false,
+"name": &"death",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3h8qk")
 }],
 "loop": true,
-"name": &"default",
+"name": &"rot_a",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1o7od")
+}],
+"loop": true,
+"name": &"rot_b",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veve3")
+}],
+"loop": true,
+"name": &"rot_c",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ueaay")
+}],
+"loop": true,
+"name": &"rot_d",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lsmc")
+}],
+"loop": true,
+"name": &"rot_e",
 "speed": 5.0
 }]
 
@@ -130,16 +230,22 @@ shape = SubResource("CapsuleShape2D_tyr4l")
 one_shot = true
 
 [node name="SkullAnimation" type="AnimatedSprite2D" parent="."]
-position = Vector2(6.66667, -3.33333)
+position = Vector2(-13.3333, 3.33334)
 rotation = -1.5708
-scale = Vector2(0.576496, 0.566586)
+scale = Vector2(0.375031, 0.368584)
 sprite_frames = SubResource("SpriteFrames_oo011")
-frame_progress = 0.813595
+animation = &"rot_b"
 
 [node name="FireParticles2" type="GPUParticles2D" parent="."]
 position = Vector2(-66.6667, 0)
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_g48r3")
+texture = ExtResource("4_qyghn")
+
+[node name="TEMP TEMP REMOVE" type="Sprite2D" parent="."]
+position = Vector2(216.96, -1.73427)
+rotation = -1.5708
+scale = Vector2(0.484042, 3.25241)
 texture = ExtResource("4_qyghn")
 
 [node name="FireSound" type="AudioStreamPlayer" parent="."]
