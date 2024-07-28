@@ -8,7 +8,7 @@ class_name MenuScreen
 @onready var leaderboard_grid: GridContainer = $"LeaderboardContainer/VBoxContainer/GridContainer"
 
 @export var limit = 10
-@export var font_size = 24
+@export var font_size = 36
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,22 +37,22 @@ func clear_leaderboard_grid():
 		child.queue_free()
 
 func update_leaderboard_grid(dict: Dictionary):
-	var font = load("res://fonts/Bungee-Regular.otf")
+	var font = load("res://fonts/ChangaOne-Regular.ttf")
 	var label_settings = LabelSettings.new()
 	label_settings.font = font
 	label_settings.font_size = font_size
 	
 	var rank_header = Label.new()
 	rank_header.set("label_settings", label_settings)
-	rank_header.text = "Rank"
+	rank_header.text = "RANK"
 		
 	var name_header = Label.new()
 	name_header.set("label_settings", label_settings)
-	name_header.text = "Name"
+	name_header.text = "NAME"
 		
 	var score_header = Label.new()
 	score_header.set("label_settings", label_settings)
-	score_header.text = "Score"
+	score_header.text = "SCORE"
 	
 	leaderboard_grid.add_child(rank_header)
 	leaderboard_grid.add_child(name_header)
