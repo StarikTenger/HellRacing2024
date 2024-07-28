@@ -37,6 +37,7 @@ func slow_down():
 	stop_particles();
 	$Cooldown.start()
 	emit_smoke_particles()
+	$SteamSound.play()
 	
 
 func stop_particles():
