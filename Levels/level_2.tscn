@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cl0bcqriec3jy" path="res://scenes/cooldown_bonus.tscn" id="1_yolfh"]
 [ext_resource type="Texture2D" uid="uid://dt8cagncdty0a" path="res://textures/tileset.png" id="2_nkwly"]
-[ext_resource type="PackedScene" path="res://scenes/DestructibleObstacle.tscn" id="3_72g57"]
+[ext_resource type="PackedScene" uid="uid://c84gf4e4nd07m" path="res://scenes/DestructibleObstacle.tscn" id="3_72g57"]
 [ext_resource type="PackedScene" uid="uid://eyv6i0lu3mu4" path="res://scenes/FinishPosition.tscn" id="3_my1ni"]
 
 [sub_resource type="GDScript" id="GDScript_5s4vk"]
