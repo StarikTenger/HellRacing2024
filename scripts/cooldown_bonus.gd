@@ -12,6 +12,8 @@ var time : float = 0
 func _process(delta):
 	time += delta
 	$AnimatedSprite2D.position.y = 10 * sin(time)
+	var scale : float = 0.215 + 0.03 * sin(time)
+	$Shadow.scale = Vector2(scale, scale)
 
 
 func _on_body_entered(body):
