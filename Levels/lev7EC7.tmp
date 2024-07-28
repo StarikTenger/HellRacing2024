@@ -26,7 +26,7 @@ func spawn_bonus():
 		if spawnpoint is Marker2D:
 			var bonus : Area2D = bonus_scene.instantiate()
 			bonus.position = spawnpoint.position
-			$Bonuses.add_child(bonus).call_deferred()
+			$Bonuses.add_child(bonus)
 "
 
 [node name="Level1" type="Node2D"]
