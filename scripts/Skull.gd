@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 class_name Skull
 
+signal berserk_on
+signal berserk_off
+
 @export var force : float
 @export var basic_force : float = 200
 @export var turn_speed : float = 5
@@ -10,6 +13,7 @@ class_name Skull
 @export var basic_friction_k : float = 5
 @export var turn_smoothness : float = 0.1
 @export var overheat_time : float = 5 # Time in seconds to overheat (when heat = 1)
+@export var berserk_threshold : float = 0.5 # Heat value when destruction starts
 
 var target_rotation : float
 var heat : float
@@ -19,6 +23,7 @@ var heat : float
 
 enum State {
 	ALIVE,
+	PAUSED,
 	DEAD
 }
 
@@ -76,12 +81,14 @@ func _physics_process(delta):
 			if collision:
 				var collider = collision.get_collider()
 				if collider is DestructibleObject:
-					var impulse: Vector2 = velocity.project(collision.get_normal())
-					var delay = (collider as DestructibleObject).hit(impulse)
-					print(delay)
-					velocity -= impulse * delay
+					if heat > berserk_threshold:
+						(collider as DestructibleObject).destroy()	
+					else:
+						die()
 				else:
 					velocity -= velocity.project(collision.get_normal())
+		State.PAUSED:
+			pass
 		State.DEAD:
 			pass
 		_:
@@ -96,6 +103,8 @@ func _ready():
 func _process(delta):		
 	
 	match state:
+		State.PAUSED:
+			pass
 		State.DEAD:
 			pass
 		State.ALIVE:
@@ -107,8 +116,7 @@ func _process(delta):
 				target_rotation -= turn_speed * delta
 			if Input.is_action_pressed("right"):
 				target_rotation += turn_speed * delta
-			if Input.is_action_just_pressed("restart"):
-				call_restart()
+			
 
 
 func _on_cooldown_timeout():
@@ -120,15 +128,17 @@ func _on_cooldown_timeout():
 func _on_tile_detection_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if body is TileMap:
 		die()
+		
+func pause():
+	state = State.PAUSED
+	
+func resume():
+	state = State.ALIVE
 
 func die():
 	state = State.DEAD
 	level_manager.death()
 	stop_particles()
-
-func call_restart():
-	# Вызвать следующий уровень из менеджера уровней
-	level_manager.restart_level()
 
 func goal_reached():
 	# Вызвать следующий уровень из менеджера уровней
@@ -142,3 +152,4 @@ func spawn(pos: Vector2, rot: float) -> void:
 	target_rotation = rot
 	heat = 0
 	start_particles()
+

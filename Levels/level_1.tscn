@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ny17ke668llt"]
+[gd_scene load_steps=8 format=3 uid="uid://ny17ke668llt"]
 
 [ext_resource type="PackedScene" uid="uid://cl0bcqriec3jy" path="res://scenes/cooldown_bonus.tscn" id="1_of7a2"]
 [ext_resource type="Texture2D" path="res://textures/unbreakable_tiles.png" id="2_3xtve"]
 [ext_resource type="PackedScene" path="res://scenes/FinishPosition.tscn" id="3_fn886"]
+[ext_resource type="PackedScene" uid="uid://c84gf4e4nd07m" path="res://scenes/DestructibleObstacle.tscn" id="4_v06f8"]
 
 [sub_resource type="GDScript" id="GDScript_5s4vk"]
 script/source = "extends Node2D
@@ -922,3 +923,8 @@ position = Vector2(1257, 977)
 position = Vector2(972, 585)
 
 [node name="Bonuses" type="Node2D" parent="."]
+
+[node name="Destructibles" type="Node" parent="."]
+
+[node name="DestructibleObstacle" parent="Destructibles" instance=ExtResource("4_v06f8")]
+position = Vector2(-15, 316)
