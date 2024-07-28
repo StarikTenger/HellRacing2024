@@ -1,16 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://bu33umkrtsw81"]
+[gd_scene load_steps=10 format=3 uid="uid://c3w41gs4en31c"]
 
 [ext_resource type="Script" path="res://scripts/PauseScreen.gd" id="1_5kvwo"]
 [ext_resource type="PackedScene" uid="uid://cffa7qodu0m4t" path="res://scenes/MenuScreen.tscn" id="2_yhxah"]
-[ext_resource type="Texture2D" uid="uid://fnmyem3pxee6" path="res://textures/HUD/Buttons/Square/Repeat/Default@2x-1.png" id="3_p7h4b"]
-[ext_resource type="Texture2D" uid="uid://bs716e1yg6pvy" path="res://textures/HUD/Buttons/Square/Repeat/Hover@2x-1.png" id="4_52ctv"]
-[ext_resource type="Texture2D" uid="uid://vcn1nftb17f8" path="res://textures/HUD/Button/Rect/Fill/Default@2x-1.png" id="5_gc42o"]
-[ext_resource type="Texture2D" uid="uid://bwwertc1r3057" path="res://textures/HUD/Button/Rect/Fill/Hover@2x-1.png" id="6_7jm2i"]
+[ext_resource type="Texture2D" uid="uid://c70tpcx825f2r" path="res://textures/HUD/button.png" id="3_ojbuy"]
+[ext_resource type="Texture2D" uid="uid://qyi88qh4c4ge" path="res://textures/HUD/buttonhover.png" id="4_mq7ku"]
+[ext_resource type="Texture2D" uid="uid://c3xgh32bmdqmb" path="res://textures/HUD/restart.png" id="6_fvjne"]
+[ext_resource type="Texture2D" uid="uid://nq120bxapueh" path="res://textures/HUD/restarthover.png" id="7_3oeh8"]
 [ext_resource type="FontFile" uid="uid://cnuhbnlmaseqv" path="res://fonts/Bungee-Regular.otf" id="7_tocqg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qrm40"]
 font = ExtResource("7_tocqg")
-font_size = 72
+font_size = 58
 font_color = Color(0.643137, 0.572549, 0.372549, 1)
 shadow_color = Color(0.443137, 0.407843, 0.305882, 1)
 
@@ -47,8 +47,8 @@ offset_right = 224.0
 offset_bottom = -155.76
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource("5_gc42o")
-texture_hover = ExtResource("6_7jm2i")
+texture_normal = ExtResource("3_ojbuy")
+texture_hover = ExtResource("4_mq7ku")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -59,10 +59,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -104.0
-offset_top = -36.0
-offset_right = 102.0
-offset_bottom = 11.0
+offset_left = -128.0
+offset_top = -44.0
+offset_right = 121.0
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "RESUME"
@@ -83,8 +83,8 @@ offset_right = -96.0
 offset_bottom = 204.24
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource("3_p7h4b")
-texture_hover = ExtResource("4_52ctv")
+texture_normal = ExtResource("6_fvjne")
+texture_hover = ExtResource("7_3oeh8")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -101,8 +101,8 @@ offset_right = 224.0
 offset_bottom = -11.76
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource("5_gc42o")
-texture_hover = ExtResource("6_7jm2i")
+texture_normal = ExtResource("3_ojbuy")
+texture_hover = ExtResource("4_mq7ku")
 ignore_texture_size = true
 stretch_mode = 5
 

@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=3 uid="uid://cffa7qodu0m4t"]
 
-[ext_resource type="Texture2D" uid="uid://ckobsjq01er2n" path="res://textures/HUD/Logotype/NameBack.png" id="1_axoxx"]
 [ext_resource type="Script" path="res://scripts/MenuScreen.gd" id="1_g22gm"]
+[ext_resource type="Texture2D" uid="uid://evdt8h6fp7m3" path="res://textures/HUD/info.png" id="2_c30q0"]
 [ext_resource type="FontFile" uid="uid://byt7wrndfoqim" path="res://fonts/ChangaOne-Regular.ttf" id="3_f48g0"]
 [ext_resource type="FontFile" uid="uid://cnuhbnlmaseqv" path="res://fonts/Bungee-Regular.otf" id="3_q4soy"]
-[ext_resource type="Texture2D" uid="uid://3mgfukxwueq7" path="res://textures/HUD/Container/Settings.png" id="4_lity3"]
-[ext_resource type="Texture2D" uid="uid://dl364rrlt0j3l" path="res://textures/HUD/Container/Leaderboard.png" id="5_218pd"]
+[ext_resource type="Texture2D" uid="uid://xnspqyfo6hhf" path="res://textures/HUD/settings.png" id="5_yfbhb"]
+[ext_resource type="Texture2D" uid="uid://dms5a2hlnaacn" path="res://textures/HUD/leaderboard.png" id="6_7fdkx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8u2gq"]
 font = ExtResource("3_f48g0")
@@ -47,7 +47,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_g22gm")
-font_size = 32
 metadata/_edit_lock_ = true
 
 [node name="LabelsContainer" type="MarginContainer" parent="."]
@@ -65,10 +64,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="InfoLabelBackground" type="Sprite2D" parent="LabelsContainer"]
-position = Vector2(158, 73)
-scale = Vector2(1.05251, 1.66082)
-texture = ExtResource("1_axoxx")
-metadata/_edit_lock_ = true
+position = Vector2(158, 81.5)
+scale = Vector2(1.05251, 1.12)
+texture = ExtResource("2_c30q0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LabelsContainer"]
 layout_mode = 2
@@ -104,9 +102,9 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
 [node name="Settings" type="Sprite2D" parent="SettingsContainer"]
-position = Vector2(281.5, 106.844)
-scale = Vector2(1.45346, 2.22917)
-texture = ExtResource("4_lity3")
+position = Vector2(281.5, 152.88)
+scale = Vector2(1.45346, 1.76881)
+texture = ExtResource("5_yfbhb")
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SettingsContainer"]
@@ -160,14 +158,14 @@ anchor_top = 0.43
 anchor_right = 0.806
 anchor_bottom = 0.43
 offset_left = -267.52
-offset_top = -208.4
+offset_top = -224.4
 offset_right = 268.48
-offset_bottom = 239.6
+offset_bottom = 223.6
 
 [node name="Leaderboard" type="Sprite2D" parent="LeaderboardContainer"]
-position = Vector2(280, 208)
-scale = Vector2(1.43198, 3.85993)
-texture = ExtResource("5_218pd")
+position = Vector2(280, 272)
+scale = Vector2(1.43198, 2.96)
+texture = ExtResource("6_7fdkx")
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LeaderboardContainer"]
