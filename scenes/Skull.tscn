@@ -141,5 +141,6 @@ amount = 16
 process_material = SubResource("ParticleProcessMaterial_g48r3")
 texture = ExtResource("4_qyghn")
 
+[connection signal="berserk_on" from="." to="." method="_on_berserk_on"]
 [connection signal="body_shape_entered" from="TileDetection" to="." method="_on_tile_detection_body_shape_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

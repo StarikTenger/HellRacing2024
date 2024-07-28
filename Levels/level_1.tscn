@@ -924,4 +924,4 @@ position = Vector2(972, 585)
 [node name="Destructibles" type="Node" parent="."]
 
 [node name="DestructibleObstacle" parent="Destructibles" instance=ExtResource("4_v06f8")]
-position = Vector2(1156, 503)
+position = Vector2(-15, 316)

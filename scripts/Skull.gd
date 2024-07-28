@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 class_name Skull
 
+signal berserk_on
+signal berserk_off
+
 @export var force : float
 @export var basic_force : float = 200
 @export var turn_speed : float = 5
