@@ -43,8 +43,8 @@ func load_level(level_index):
 	current_level = level_path.instantiate()
 	add_child(current_level)
 	var pos: Node2D = current_level.get_node("StartPosition")
-	$"HUD/Screen/DeathScreen".hide()
 	player.spawn(pos.position, 0)
+	$"HUD/Screen/DeathScreen".hide()
 	current_level.spawn_bonus()
 	is_game_active = true
 

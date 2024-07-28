@@ -1,33 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://gf04mfyu57dj"]
+[gd_scene load_steps=7 format=3 uid="uid://gf04mfyu57dj"]
 
-[ext_resource type="PackedScene" uid="uid://cl0bcqriec3jy" path="res://scenes/cooldown_bonus.tscn" id="1_yolfh"]
+[ext_resource type="Script" path="res://scripts/Level.gd" id="1_b7kx8"]
 [ext_resource type="Texture2D" uid="uid://dt8cagncdty0a" path="res://textures/tileset.png" id="2_nkwly"]
 [ext_resource type="PackedScene" uid="uid://c84gf4e4nd07m" path="res://scenes/DestructibleObstacle.tscn" id="3_72g57"]
 [ext_resource type="PackedScene" path="res://scenes/FinishPosition.tscn" id="3_my1ni"]
-
-[sub_resource type="GDScript" id="GDScript_5s4vk"]
-script/source = "extends Node2D
-
-@export var bonus_scene: PackedScene
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	spawn_bonus()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-	
-func spawn_bonus():
-	for bonus in $Bonuses.get_children():
-		bonus.queue_free()
-	for spawnpoint in $\"CooldownPositions\".get_children():
-		if spawnpoint is Marker2D:
-			var bonus : Area2D = bonus_scene.instantiate()
-			bonus.position = spawnpoint.position
-			$Bonuses.add_child(bonus)
-"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eyrws"]
 texture = ExtResource("2_nkwly")
@@ -723,8 +699,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_eyrws")
 
 [node name="Level1" type="Node2D"]
-script = SubResource("GDScript_5s4vk")
-bonus_scene = ExtResource("1_yolfh")
+script = ExtResource("1_b7kx8")
 
 [node name="Map" type="TileMap" parent="."]
 scale = Vector2(2, 2)
