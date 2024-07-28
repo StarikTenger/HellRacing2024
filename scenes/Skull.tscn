@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b6fq6bunl1p2w" path="res://sfx/fire.ogg" id="6_2v2vg"]
 [ext_resource type="AudioStream" uid="uid://dminud74g8fu1" path="res://sfx/steam.ogg" id="6_f2u1h"]
 [ext_resource type="Texture2D" path="res://textures/SkullFin.png" id="4_v1pm0"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e83ju"]
 radius = 56.6667
 height = 226.667

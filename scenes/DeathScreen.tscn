@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/DeathScreen.gd" id="1_te3fr"]
 [ext_resource type="PackedScene" uid="uid://cffa7qodu0m4t" path="res://scenes/MenuScreen.tscn" id="2_ljnls"]
-[ext_resource type="Texture2D" uid="uid://vcn1nftb17f8" path="res://textures/HUD/Button/Rect/Fill/Default@2x-1.png" id="3_7jgt3"]
-[ext_resource type="Texture2D" uid="uid://fnmyem3pxee6" path="res://textures/HUD/Buttons/Square/Repeat/Default@2x-1.png" id="3_rbiaw"]
-[ext_resource type="Texture2D" uid="uid://bs716e1yg6pvy" path="res://textures/HUD/Buttons/Square/Repeat/Hover@2x-1.png" id="4_fdd3i"]
-[ext_resource type="Texture2D" uid="uid://bwwertc1r3057" path="res://textures/HUD/Button/Rect/Fill/Hover@2x-1.png" id="4_kwj74"]
+[ext_resource type="Texture2D" uid="uid://c3xgh32bmdqmb" path="res://textures/HUD/restart.png" id="3_vx0ce"]
+[ext_resource type="Texture2D" uid="uid://nq120bxapueh" path="res://textures/HUD/restarthover.png" id="4_pk21j"]
+[ext_resource type="Texture2D" uid="uid://c70tpcx825f2r" path="res://textures/HUD/button.png" id="5_ridwa"]
+[ext_resource type="Texture2D" uid="uid://qyi88qh4c4ge" path="res://textures/HUD/buttonhover.png" id="6_1ep4c"]
 [ext_resource type="FontFile" uid="uid://cnuhbnlmaseqv" path="res://fonts/Bungee-Regular.otf" id="7_wtfyb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jggv5"]
@@ -41,8 +41,8 @@ offset_right = 144.0
 offset_bottom = 140.24
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource("3_rbiaw")
-texture_hover = ExtResource("4_fdd3i")
+texture_normal = ExtResource("3_vx0ce")
+texture_hover = ExtResource("4_pk21j")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -58,8 +58,8 @@ offset_right = 144.0
 offset_bottom = 60.2399
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource("3_7jgt3")
-texture_hover = ExtResource("4_kwj74")
+texture_normal = ExtResource("5_ridwa")
+texture_hover = ExtResource("6_1ep4c")
 ignore_texture_size = true
 stretch_mode = 5
 
