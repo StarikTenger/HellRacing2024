@@ -135,12 +135,9 @@ radius = 39.0128
 script = ExtResource("1_0tp5t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-5.96046e-08, -5.96046e-08)
-scale = Vector2(1.365, 1.365)
+position = Vector2(2, 0)
+scale = Vector2(1.5625, 1.5625)
 sprite_frames = SubResource("SpriteFrames_gmfl6")
-animation = &"splash"
-frame = 7
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qwalp")

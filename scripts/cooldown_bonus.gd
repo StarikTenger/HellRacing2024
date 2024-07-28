@@ -8,8 +8,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+var time : float = 0
 func _process(delta):
-	pass
+	time += delta
+	$AnimatedSprite2D.position.y = 10 * sin(time)
 
 
 func _on_body_entered(body):
