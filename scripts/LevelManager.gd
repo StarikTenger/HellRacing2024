@@ -4,23 +4,33 @@ class_name LevelManager
 
 @export var levels = ["res://Levels/level_1.tscn", "res://Levels/level_2.tscn"]  # Список сцен уровней
 
-@onready var death_screen: Control = null
+var death_screen: Control = null
+var response_session: GuestSession = null
+var response_player_set_name : PlayerName = null
+var player_response_data: Variant = null
+
+var leaderboard_key = "lead_board_key"
 
 var loaded_levels = []
 var current_level_index: int = 0
 var current_level: Node2D = null
 var player: Skull = null
+var player_name = "Dodik"
+var player_id: int
 
 var is_game_active: bool = true;
 var current_time: float = 0 # В секундах
 
 func _ready():
+	await auth()
+	player_response_data = JSON.parse_string(response_session.ToJson())
 	player = $Skull
 	for i in range(len(levels)):
 		loaded_levels.append(load(levels[i]))
 	load_level(current_level_index)
 	death_screen = $"HUD/Screen/DeathScreen"
 	
+
 func _process(delta):
 	if is_game_active:
 		current_time += delta
@@ -57,6 +67,50 @@ func victory() -> void:
 func death() -> void:
 	is_game_active = false
 	death_screen.show_death_screen()
+	
+func show_leader_board() -> Dictionary:
+	var getLeaderboard : LootLockerGetLeaderboard = await LootLockerApi._ListLeaderboard(leaderboard_key)
+	print(getLeaderboard.ToJson())
+	# TO DO: beautiful printing on screen that LB
+	return JSON.parse_string(getLeaderboard.ToJson())
+	
+
+func auth(name=null) -> bool:
+	response_session = null
+	response_session = await LootLockerApi._guestLogin()
+	if name:
+		player_name = name
+		var response_player_set_name : PlayerName = await LootLockerApi._setPlayerName(player_name)
+	while true:
+		if response_session:
+			return true
+	return false
+	
+
+func submit_score_leader_board(name = null) -> void:
+	# await auth(name)
+	if name:
+		player_name = name
+		var response : PlayerName = await LootLockerApi._setPlayerName(name)
+	var leaderboardResponse : LootLockerLeaderboardSubmit = null
+	if await is_best_result():
+		leaderboardResponse = await LootLockerApi._SubmitScore(leaderboard_key, "", current_time, "Some interesting metadata")
+	
+
+func is_best_result() -> bool:
+	if response_session:
+		player_id = player_response_data["player_id"]
+		if player_response_data["seen_before"]:
+			var getLeaderboard : LootLockerGetLeaderboard = await LootLockerApi._ListLeaderboard(leaderboard_key)
+			var list_of_lb = JSON.parse_string(getLeaderboard.ToJson())
+			# print(list_of_lb)
+			if list_of_lb["items"]:
+				for pl in list_of_lb["items"]:
+					if pl["player"]["id"] == player_id:
+						print(pl["score"])
+						if pl["score"] > current_time:
+							return true
+	return false
 
 func next_level():
 	if current_level_index + 1 < levels.size():
