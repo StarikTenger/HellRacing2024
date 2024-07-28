@@ -38,6 +38,8 @@ func load_level(level_index):
 	assert(level_index >= 0 and level_index < loaded_levels.size())
 	var level_path: PackedScene = loaded_levels[level_index]
 	remove_child(current_level)
+	if current_level:
+		current_level.queue_free()
 	current_level = level_path.instantiate()
 	add_child(current_level)
 	var pos: Node2D = current_level.get_node("StartPosition")
