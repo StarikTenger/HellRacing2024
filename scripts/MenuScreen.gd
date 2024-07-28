@@ -7,6 +7,9 @@ class_name MenuScreen
 @onready var time_label = $"LabelsContainer/VBoxContainer/TimeLabel"
 @onready var leaderboard_grid: GridContainer = $"LeaderboardContainer/VBoxContainer/GridContainer"
 
+@export var limit = 10
+@export var font_size = 24
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	level_manager.parse_leader_board.connect(_on_leaderpoard_refresh)
@@ -37,7 +40,7 @@ func update_leaderboard_grid(dict: Dictionary):
 	var font = load("res://fonts/Bungee-Regular.otf")
 	var label_settings = LabelSettings.new()
 	label_settings.font = font
-	label_settings.font_size = 24
+	label_settings.font_size = font_size
 	
 	var rank_header = Label.new()
 	rank_header.set("label_settings", label_settings)
@@ -55,7 +58,6 @@ func update_leaderboard_grid(dict: Dictionary):
 	leaderboard_grid.add_child(name_header)
 	leaderboard_grid.add_child(score_header)
 	
-	var limit = 10
 	var i = 1
 	for row in dict["items"]:
 		if i > limit:
