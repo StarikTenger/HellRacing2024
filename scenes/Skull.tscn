@@ -234,18 +234,12 @@ position = Vector2(-13.3333, 3.33334)
 rotation = -1.5708
 scale = Vector2(0.375031, 0.368584)
 sprite_frames = SubResource("SpriteFrames_oo011")
-animation = &"rot_b"
+animation = &"rot_a"
 
 [node name="FireParticles2" type="GPUParticles2D" parent="."]
 position = Vector2(-66.6667, 0)
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_g48r3")
-texture = ExtResource("4_qyghn")
-
-[node name="TEMP TEMP REMOVE" type="Sprite2D" parent="."]
-position = Vector2(216.96, -1.73427)
-rotation = -1.5708
-scale = Vector2(0.484042, 3.25241)
 texture = ExtResource("4_qyghn")
 
 [node name="FireSound" type="AudioStreamPlayer" parent="."]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgiebv6pgjban"
-path="res://.godot/imported/leaderboard.png-4bdad9a26e6a46bd80d969312fc88ab2.ctex"
+uid="uid://cx6g218iy5fix"
+path="res://.godot/imported/shadow.png-7612836bee885b8ff4de477fcb4dc22f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/HUD/leaderboard.png"
-dest_files=["res://.godot/imported/leaderboard.png-4bdad9a26e6a46bd80d969312fc88ab2.ctex"]
+source_file="res://textures/shadow.png"
+dest_files=["res://.godot/imported/shadow.png-7612836bee885b8ff4de477fcb4dc22f.ctex"]
 
 [params]
 

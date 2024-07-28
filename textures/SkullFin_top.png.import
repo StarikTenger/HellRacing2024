@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgiebv6pgjban"
-path="res://.godot/imported/leaderboard.png-4bdad9a26e6a46bd80d969312fc88ab2.ctex"
+uid="uid://dpjl31ki7qyv6"
+path="res://.godot/imported/SkullFin_top.png-2f81712a832206ae4aefd65ee39c432f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/HUD/leaderboard.png"
-dest_files=["res://.godot/imported/leaderboard.png-4bdad9a26e6a46bd80d969312fc88ab2.ctex"]
+source_file="res://textures/SkullFin_top.png"
+dest_files=["res://.godot/imported/SkullFin_top.png-2f81712a832206ae4aefd65ee39c432f.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgiebv6pgjban"
-path="res://.godot/imported/leaderboard.png-4bdad9a26e6a46bd80d969312fc88ab2.ctex"
+uid="uid://batm4wui0xdly"
+path="res://.godot/imported/particles_smoke.png-38985a9059385fd89a5f55277cd2ccc4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/HUD/leaderboard.png"
-dest_files=["res://.godot/imported/leaderboard.png-4bdad9a26e6a46bd80d969312fc88ab2.ctex"]
+source_file="res://textures/particles_smoke.png"
+dest_files=["res://.godot/imported/particles_smoke.png-38985a9059385fd89a5f55277cd2ccc4.ctex"]
 
 [params]
 
