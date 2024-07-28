@@ -23,6 +23,7 @@ var heat : float
 
 enum State {
 	ALIVE,
+	PAUSED,
 	DEAD
 }
 
@@ -89,6 +90,8 @@ func _physics_process(delta):
 						die()
 				else:
 					velocity -= velocity.project(collision.get_normal())
+		State.PAUSED:
+			pass
 		State.DEAD:
 			pass
 		_:
@@ -103,6 +106,8 @@ func _ready():
 func _process(delta):		
 	
 	match state:
+		State.PAUSED:
+			pass
 		State.DEAD:
 			pass
 		State.ALIVE:
@@ -114,8 +119,7 @@ func _process(delta):
 				target_rotation -= turn_speed * delta
 			if Input.is_action_pressed("right"):
 				target_rotation += turn_speed * delta
-			if Input.is_action_just_pressed("restart"):
-				call_restart()
+			
 
 
 func _on_cooldown_timeout():
@@ -128,16 +132,18 @@ func _on_cooldown_timeout():
 func _on_tile_detection_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if body is TileMap:
 		die()
+		
+func pause():
+	state = State.PAUSED
+	
+func resume():
+	state = State.ALIVE
 
 func die():
 	state = State.DEAD
 	$FireSound.stop()
 	level_manager.death()
 	stop_particles()
-
-func call_restart():
-	# Вызвать следующий уровень из менеджера уровней
-	level_manager.restart_level()
 
 func goal_reached():
 	# Вызвать следующий уровень из менеджера уровней
