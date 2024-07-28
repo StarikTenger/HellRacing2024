@@ -105,11 +105,17 @@ func is_best_result() -> bool:
 			var list_of_lb = JSON.parse_string(getLeaderboard.ToJson())
 			# print(list_of_lb)
 			if list_of_lb["items"]:
+				var flag : bool = false
 				for pl in list_of_lb["items"]:
 					if pl["player"]["id"] == player_id:
+						flag = true
 						print(pl["score"])
 						if pl["score"] > current_time:
 							return true
+				if !flag:
+					return true
+		else:
+			return true
 	return false
 
 func next_level():
