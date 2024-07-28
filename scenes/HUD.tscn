@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dp04ik1vg6un7"]
+[gd_scene load_steps=11 format=3 uid="uid://dp04ik1vg6un7"]
 
 [ext_resource type="FontFile" uid="uid://byt7wrndfoqim" path="res://fonts/ChangaOne-Regular.ttf" id="1_xgapt"]
 [ext_resource type="Script" path="res://scripts/LevelIndicatorLabel.gd" id="2_7wful"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/TimeLabel.gd" id="4_c84tb"]
 [ext_resource type="Texture2D" uid="uid://crb2ts6p7206k" path="res://textures/HUD/Bar/Line.png" id="4_knxb8"]
 [ext_resource type="PackedScene" uid="uid://b30gwpehrqnep" path="res://scenes/DeathScreen.tscn" id="6_gjj4b"]
+[ext_resource type="PackedScene" uid="uid://bu33umkrtsw81" path="res://scenes/PauseScreen.tscn" id="8_a0m5x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fddug"]
 font = ExtResource("1_xgapt")
@@ -73,3 +74,7 @@ script = ExtResource("4_c84tb")
 
 [node name="DeathScreen" parent="Screen" instance=ExtResource("6_gjj4b")]
 layout_mode = 1
+
+[node name="PauseScreen" parent="Screen" instance=ExtResource("8_a0m5x")]
+layout_mode = 1
+metadata/_edit_lock_ = true
