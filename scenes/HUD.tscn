@@ -1,5 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dp04ik1vg6un7"]
 
+[ext_resource type="PackedScene" path="res://scenes/MenuScreen.tscn" id="1_sesaw"]
+[ext_resource type="Texture2D" uid="uid://ben2e0mlkukio" path="res://textures/HUD/healthbarUnder.png" id="1_unjh5"]
 [ext_resource type="FontFile" uid="uid://byt7wrndfoqim" path="res://fonts/ChangaOne-Regular.ttf" id="1_xgapt"]
 [ext_resource type="Script" path="res://scripts/LevelIndicatorLabel.gd" id="2_7wful"]
 [ext_resource type="Texture2D" uid="uid://dqnmvkr1hgdr6" path="res://textures/HUD/Bar/Background.png" id="3_tws6u"]

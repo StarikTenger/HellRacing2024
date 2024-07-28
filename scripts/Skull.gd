@@ -42,8 +42,9 @@ func slow_down():
 	stop_particles();
 	$Cooldown.start()
 	emit_smoke_particles()
+	$SteamSound.play()
+	$FireSound.stop()
 	
-
 func stop_particles():
 	$FireParticles.emitting = false
 	$FireParticles2.emitting = false
@@ -73,6 +74,8 @@ func _physics_process(delta):
 			var direction_k : float = (1 - abs(velocity.normalized().dot(direction)))
 			velocity -= velocity * direction_k * friction_k * delta;
 			velocity += direction * direction_k * delta * basic_force
+			
+			$FireSound.volume_db = min(velocity.length() * (30./1000.) - 30., 0)
 
 			rotation = lerp_angle(rotation, target_rotation, turn_smoothness)
 
@@ -123,6 +126,7 @@ func _on_cooldown_timeout():
 	acceleration_on = true
 	start_particles()
 	$SmokeParticles.emitting = false
+	$FireSound.play()
 
 
 func _on_tile_detection_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
