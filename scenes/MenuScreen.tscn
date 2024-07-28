@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cffa7qodu0m4t"]
+[gd_scene load_steps=15 format=3 uid="uid://cffa7qodu0m4t"]
 
 [ext_resource type="Texture2D" uid="uid://ckobsjq01er2n" path="res://textures/HUD/Logotype/NameBack.png" id="1_axoxx"]
 [ext_resource type="Script" path="res://scripts/MenuScreen.gd" id="1_g22gm"]
@@ -26,6 +26,18 @@ font_size = 36
 [sub_resource type="LabelSettings" id="LabelSettings_sigw2"]
 font = ExtResource("3_f48g0")
 font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_rigcg"]
+font = ExtResource("3_q4soy")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_0el80"]
+font = ExtResource("3_q4soy")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_hrml7"]
+font = ExtResource("3_q4soy")
+font_size = 24
 
 [node name="MenuScreen" type="Control"]
 layout_mode = 3
@@ -159,6 +171,7 @@ metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LeaderboardContainer"]
 layout_mode = 2
+theme_override_constants/separation = 20
 metadata/_edit_lock_ = true
 
 [node name="LeaderboardLabel" type="Label" parent="LeaderboardContainer/VBoxContainer"]
@@ -170,4 +183,22 @@ label_settings = SubResource("LabelSettings_6ugtq")
 
 [node name="GridContainer" type="GridContainer" parent="LeaderboardContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 30
+columns = 3
 metadata/_edit_lock_ = true
+
+[node name="RankHeader" type="Label" parent="LeaderboardContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Rank"
+label_settings = SubResource("LabelSettings_rigcg")
+
+[node name="NameHeader" type="Label" parent="LeaderboardContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Name"
+label_settings = SubResource("LabelSettings_0el80")
+
+[node name="ScoreHeader" type="Label" parent="LeaderboardContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Score"
+label_settings = SubResource("LabelSettings_hrml7")

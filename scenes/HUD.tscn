@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scripts/TimeLabel.gd" id="4_c84tb"]
 [ext_resource type="Texture2D" uid="uid://crb2ts6p7206k" path="res://textures/HUD/Bar/Line.png" id="4_knxb8"]
 [ext_resource type="PackedScene" uid="uid://b30gwpehrqnep" path="res://scenes/DeathScreen.tscn" id="6_gjj4b"]
-[ext_resource type="PackedScene" uid="uid://bu33umkrtsw81" path="res://scenes/PauseScreen.tscn" id="8_a0m5x"]
+[ext_resource type="PackedScene" path="res://scenes/PauseScreen.tscn" id="8_a0m5x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fddug"]
 font = ExtResource("1_xgapt")

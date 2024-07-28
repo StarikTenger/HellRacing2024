@@ -21,10 +21,13 @@ var is_game_active: bool = true;
 var is_dead: bool = false;
 var current_time: float = 0 # В секундах
 
+var current_leader_board: Dictionary;
+
 signal dead;
 signal respawned;
 signal paused;
 signal resumed;
+signal parse_leader_board;
 
 func _ready():
 	await auth()
@@ -58,6 +61,8 @@ func pause_game():
 	player.pause()
 	is_game_active = false
 	paused.emit()
+	current_leader_board = await refresh_leader_board()
+	parse_leader_board.emit()
 	
 func resume_game():
 	player.resume()
@@ -100,10 +105,11 @@ func death() -> void:
 	is_dead = true;
 	dead.emit();
 	is_game_active = false
+	current_leader_board = await refresh_leader_board()
+	parse_leader_board.emit()
 
-func show_leader_board() -> Dictionary:
+func refresh_leader_board() -> Dictionary:
 	var getLeaderboard : LootLockerGetLeaderboard = await LootLockerApi._ListLeaderboard(leaderboard_key)
-	print(getLeaderboard.ToJson())
 	# TODO: beautiful printing on screen that LB
 	return JSON.parse_string(getLeaderboard.ToJson())
 
