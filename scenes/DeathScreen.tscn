@@ -1,20 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b30gwpehrqnep"]
+[gd_scene load_steps=2 format=3 uid="uid://b30gwpehrqnep"]
 
 [ext_resource type="Script" path="res://scripts/DeathScreen.gd" id="1_te3fr"]
-[ext_resource type="PackedScene" uid="uid://cffa7qodu0m4t" path="res://scenes/MenuScreen.tscn" id="2_ljnls"]
-[ext_resource type="Texture2D" uid="uid://vcn1nftb17f8" path="res://textures/HUD/Button/Rect/Fill/Default@2x-1.png" id="3_7jgt3"]
-[ext_resource type="Texture2D" uid="uid://fnmyem3pxee6" path="res://textures/HUD/Buttons/Square/Repeat/Default@2x-1.png" id="3_rbiaw"]
-[ext_resource type="Texture2D" uid="uid://bs716e1yg6pvy" path="res://textures/HUD/Buttons/Square/Repeat/Hover@2x-1.png" id="4_fdd3i"]
-[ext_resource type="Texture2D" uid="uid://bwwertc1r3057" path="res://textures/HUD/Button/Rect/Fill/Hover@2x-1.png" id="4_kwj74"]
-[ext_resource type="FontFile" uid="uid://cnuhbnlmaseqv" path="res://fonts/Bungee-Regular.otf" id="7_wtfyb"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_jggv5"]
-font = ExtResource("7_wtfyb")
-font_size = 28
-font_color = Color(0.643137, 0.572549, 0.372549, 1)
-shadow_size = 2
-shadow_color = Color(0.427451, 0.392157, 0.298039, 1)
-shadow_offset = Vector2(-1, -1.5)
 
 [node name="DeathScreen" type="Control"]
 layout_mode = 3
@@ -26,60 +12,56 @@ grow_vertical = 2
 script = ExtResource("1_te3fr")
 metadata/_edit_lock_ = true
 
-[node name="MenuScreen" parent="." instance=ExtResource("2_ljnls")]
+[node name="DeathLabel" type="Label" parent="."]
 layout_mode = 1
-
-[node name="RestartLevelButton" type="TextureButton" parent="MenuScreen"]
-layout_mode = 2
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.722
+anchor_top = 0.338
 anchor_right = 0.5
-anchor_bottom = 0.722
-offset_left = -144.0
-offset_top = -139.76
-offset_right = 144.0
-offset_bottom = 140.24
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture_normal = ExtResource("3_rbiaw")
-texture_hover = ExtResource("4_fdd3i")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="RestartGameButton" type="TextureButton" parent="MenuScreen"]
-layout_mode = 2
-anchor_left = 0.5
-anchor_top = 0.922
-anchor_right = 0.5
-anchor_bottom = 0.922
-offset_left = -144.0
-offset_top = -59.7601
-offset_right = 144.0
-offset_bottom = 60.2399
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture_normal = ExtResource("3_7jgt3")
-texture_hover = ExtResource("4_kwj74")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="MenuScreen/RestartGameButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -104.0
-offset_top = -24.0
-offset_right = 102.0
-offset_bottom = 15.0
+anchor_bottom = 0.338
+offset_left = -106.0
+offset_top = -35.04
+offset_right = 150.0
+offset_bottom = 31.96
 grow_horizontal = 2
 grow_vertical = 2
-text = "RESTART
-GAME"
-label_settings = SubResource("LabelSettings_jggv5")
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 48
+text = "ЖИЗНь!!!"
 
-[connection signal="pressed" from="MenuScreen/RestartLevelButton" to="." method="_on_restart_level_button_pressed"]
-[connection signal="pressed" from="MenuScreen/RestartGameButton" to="." method="_on_restart_game_button_pressed"]
+[node name="RestartLevelButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.502
+anchor_top = 0.5
+anchor_right = 0.502
+anchor_bottom = 0.5
+offset_left = -355.84
+offset_top = 52.0
+offset_right = -67.84
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+text = "Restart level"
+text_overrun_behavior = 1
+
+[node name="RestartGameButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.502
+anchor_top = 0.5
+anchor_right = 0.502
+anchor_bottom = 0.5
+offset_left = 60.16
+offset_top = 52.0
+offset_right = 348.16
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+text = "Restart game"
+
+[connection signal="pressed" from="RestartLevelButton" to="." method="_on_restart_level_button_pressed"]
+[connection signal="pressed" from="RestartLevelButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="RestartGameButton" to="." method="_on_restart_game_button_pressed"]
+[connection signal="pressed" from="RestartGameButton" to="." method="_on_restart_button_pressed"]
