@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 class_name Skull
 
+signal berserk_on
+signal berserk_off
+
 @export var force : float
 @export var basic_force : float = 200
 @export var turn_speed : float = 5
@@ -10,6 +13,7 @@ class_name Skull
 @export var basic_friction_k : float = 5
 @export var turn_smoothness : float = 0.1
 @export var overheat_time : float = 5 # Time in seconds to overheat (when heat = 1)
+@export var berserk_threshold : float = 0.5 # Heat value when destruction starts
 
 var target_rotation : float
 var heat : float
@@ -76,10 +80,10 @@ func _physics_process(delta):
 			if collision:
 				var collider = collision.get_collider()
 				if collider is DestructibleObject:
-					var impulse: Vector2 = velocity.project(collision.get_normal())
-					var delay = (collider as DestructibleObject).hit(impulse)
-					print(delay)
-					velocity -= impulse * delay
+					if heat > berserk_threshold:
+						(collider as DestructibleObject).destroy()	
+					else:
+						die()
 				else:
 					velocity -= velocity.project(collision.get_normal())
 		State.DEAD:
@@ -142,3 +146,4 @@ func spawn(pos: Vector2, rot: float) -> void:
 	target_rotation = rot
 	heat = 0
 	start_particles()
+

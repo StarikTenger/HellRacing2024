@@ -14,6 +14,18 @@ var death_sound: AudioStreamPlayer2D
 var collider_shape: CollisionShape2D
 var sprite: Sprite2D
 
+@onready var player : Skull = $"/root/LevelManager/Skull"
+
+func is_active():
+	return state == State.ACTIVE
+
+func destroy():
+	$ColliderShape.disabled = true
+	state = State.INACTIVE
+	$Animation.play("death")
+	await $Animation.animation_finished
+	queue_free()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	state = State.ACTIVE
@@ -26,25 +38,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta : float):
+	
 	match state:
 		State.ACTIVE:
-			pass
+			if player.heat > player.berserk_threshold:
+				$Animation.play("weak")
+			else:
+				$Animation.play("strong")
 		State.INACTIVE:
 			if not death_sound.is_playing():
 				# queue_free()
 				pass
-
-func hit(impulse: Vector2) -> float:
-	if state == State.ACTIVE:
-		var damage = impulse.length()
-		if damage >= health:
-			death_sound.play()
-			state = State.INACTIVE
-			collider_shape.disabled = true
-			sprite.visible = false
-			return health / damage
-		else:
-			health -= damage
-			return 1
-	else:
-		return 0
