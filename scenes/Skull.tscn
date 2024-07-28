@@ -1,10 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://c1g2kesrcewpi"]
+[gd_scene load_steps=21 format=3 uid="uid://c1g2kesrcewpi"]
 
 [ext_resource type="Script" path="res://scripts/Skull.gd" id="1_ocvkw"]
-[ext_resource type="Texture2D" uid="uid://c5tbwnxq3xh5a" path="res://textures/skull.png" id="2_6b212"]
 [ext_resource type="Texture2D" uid="uid://c5r6l30mao3yv" path="res://textures/smoke_particle.png" id="2_n42io"]
-[ext_resource type="Texture2D" uid="uid://dycqeaibrgb4q" path="res://textures/skull_open.png" id="3_fmu62"]
 [ext_resource type="Texture2D" uid="uid://d0b8wehy7lv7" path="res://textures/fire_particle.png" id="4_qyghn"]
+[ext_resource type="Texture2D" uid="uid://cdhtmq1pgg7eu" path="res://textures/SkullFin.png" id="4_v1pm0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e83ju"]
 radius = 56.6667
@@ -43,6 +42,8 @@ curve = SubResource("Curve_a8bes")
 particle_flag_disable_z = true
 emission_shape = 2
 emission_sphere_radius = 73.17
+angle_min = 173.5
+angle_max = 242.9
 direction = Vector3(-1, 0, 0)
 spread = 35.188
 initial_velocity_min = 330.83
@@ -59,10 +60,7 @@ height = 266.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_6b212")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_fmu62")
+"texture": ExtResource("4_v1pm0")
 }],
 "loop": true,
 "name": &"default",
@@ -87,6 +85,8 @@ curve = SubResource("Curve_22msx")
 particle_flag_disable_z = true
 emission_shape = 2
 emission_sphere_radius = 73.17
+angle_min = -173.6
+angle_max = -121.5
 direction = Vector3(-1, 0, 0)
 spread = 35.188
 initial_velocity_min = 330.83
@@ -129,11 +129,11 @@ shape = SubResource("CapsuleShape2D_tyr4l")
 one_shot = true
 
 [node name="SkullAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(6.66667, -3.33333)
 rotation = -1.5708
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.576496, 0.566586)
 sprite_frames = SubResource("SpriteFrames_oo011")
 frame_progress = 0.813595
-metadata/_edit_lock_ = true
 
 [node name="FireParticles2" type="GPUParticles2D" parent="."]
 position = Vector2(-66.6667, 0)
