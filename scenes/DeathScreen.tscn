@@ -80,3 +80,6 @@ text = "RESTART
 GAME"
 label_settings = SubResource("LabelSettings_jggv5")
 horizontal_alignment = 1
+
+[connection signal="pressed" from="MenuScreen/RestartLevelButton" to="." method="_on_restart_level_button_pressed"]
+[connection signal="pressed" from="MenuScreen/RestartGameButton" to="." method="_on_restart_game_button_pressed"]

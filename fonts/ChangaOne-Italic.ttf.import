@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ced1dkde3d2ul"
-path="res://.godot/imported/BungeeLayersRotated-Regular.otf-76ce4b116601769785c2a587a7fe909f.fontdata"
+uid="uid://buek0nh6ocb7e"
+path="res://.godot/imported/ChangaOne-Italic.ttf-db44b940f3f3c3508533d2057a1abcab.fontdata"
 
 [deps]
 
-source_file="res://fonts/BungeeLayersRotated-Regular.otf"
-dest_files=["res://.godot/imported/BungeeLayersRotated-Regular.otf-76ce4b116601769785c2a587a7fe909f.fontdata"]
+source_file="res://fonts/ChangaOne-Italic.ttf"
+dest_files=["res://.godot/imported/ChangaOne-Italic.ttf-db44b940f3f3c3508533d2057a1abcab.fontdata"]
 
 [params]
 

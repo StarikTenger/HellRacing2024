@@ -142,3 +142,4 @@ func spawn(pos: Vector2, rot: float) -> void:
 	target_rotation = rot
 	heat = 0
 	start_particles()
+
