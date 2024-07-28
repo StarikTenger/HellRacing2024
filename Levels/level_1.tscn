@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ny17ke668llt"]
 
 [ext_resource type="PackedScene" uid="uid://cl0bcqriec3jy" path="res://scenes/cooldown_bonus.tscn" id="1_of7a2"]
-[ext_resource type="Texture2D" uid="uid://bbi22yn5r0l06" path="res://textures/unbreakable_tiles.png" id="2_3xtve"]
+[ext_resource type="Texture2D" path="res://textures/unbreakable_tiles.png" id="2_3xtve"]
 [ext_resource type="PackedScene" path="res://scenes/FinishPosition.tscn" id="3_fn886"]
 
 [sub_resource type="GDScript" id="GDScript_5s4vk"]
