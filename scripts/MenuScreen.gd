@@ -80,7 +80,7 @@ func update_leaderboard_grid(dict: Dictionary):
 		
 		var score_label = Label.new()
 		score_label.set("label_settings", label_settings)
-		score_label.text = str(row["score"])
+		score_label.text = str("%02d:%02d" % [floor(row["score"] / 60), int(row["score"]) % 60])
 		
 		leaderboard_grid.add_child(rank_label)
 		leaderboard_grid.add_child(name_label)
