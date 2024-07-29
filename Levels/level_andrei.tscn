@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dwjeargyks48g"]
 
 [ext_resource type="Script" path="res://scripts/level_andrei.gd" id="1_ayjea"]
-[ext_resource type="TileSet" uid="uid://dg62fin4drjnu" path="res://resources/tileset.tres" id="1_hnhe0"]
+[ext_resource type="TileSet" uid="uid://c4cq6ahbvrp0s" path="res://resources/tileset.tres" id="1_hnhe0"]
 [ext_resource type="PackedScene" uid="uid://eyv6i0lu3mu4" path="res://scenes/FinishPosition.tscn" id="2_emrg0"]
 [ext_resource type="PackedScene" uid="uid://cl0bcqriec3jy" path="res://scenes/cooldown_bonus.tscn" id="3_0gven"]
 [ext_resource type="PackedScene" uid="uid://c84gf4e4nd07m" path="res://scenes/DestructibleObstacle.tscn" id="4_irkbn"]
