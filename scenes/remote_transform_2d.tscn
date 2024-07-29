@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://uiye53oror8a"]
+[gd_scene format=3 uid="uid://dybfgixafi421"]
 
 [node name="RemoteTransform2D" type="RemoteTransform2D"]
 scale = Vector2(3.33333, 3.33333)

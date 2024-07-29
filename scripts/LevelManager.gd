@@ -17,6 +17,9 @@ var player: Skull = null
 var player_name = "Dodik"
 var player_id: int
 
+var music_quite: MusicQuite = null
+var music_loud: MusicLoud = null
+
 var is_game_active: bool = true;
 var is_dead: bool = false;
 var is_victory: bool = false;
@@ -43,8 +46,11 @@ func load_materials():
 	add_child(load("res://scenes/HUD.tscn").instantiate())
 	add_child(load("res://scenes/camera_2d.tscn").instantiate())
 	player.add_child(load("res://scenes/remote_transform_2d.tscn").instantiate())
-	add_child(load("res://scenes/music_quite.tscn").instantiate())
-	add_child(load("res://scenes/music_loud.tscn").instantiate())
+	
+	music_quite = load("res://scenes/music_quite.tscn").instantiate()
+	add_child(music_quite)
+	music_loud = load("res://scenes/music_loud.tscn").instantiate()
+	add_child(music_loud)
 
 func start_game():
 	if player_response_data:
