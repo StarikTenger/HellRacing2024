@@ -19,6 +19,7 @@ var player_id: int
 
 var is_game_active: bool = true;
 var is_dead: bool = false;
+var is_victory: bool = false;
 var current_time: float = 0 # В секундах
 
 var current_leader_board: Dictionary;
@@ -28,6 +29,7 @@ signal respawned;
 signal paused;
 signal resumed;
 signal parse_leader_board;
+signal victory_happend;
 
 func _ready():
 	for i in range(len(levels)):
@@ -58,13 +60,11 @@ func _process(delta):
 		current_time += delta
 
 func _input(event):
-	if event.is_action_pressed("restart"):
-		restart_level()
 	if event.is_action_pressed("pause"):
 		change_game_state()
 
 func change_game_state():
-	if is_dead:
+	if is_dead or is_victory:
 		return
 	
 	if is_game_active:
@@ -96,7 +96,9 @@ func restart_game():
 
 func load_level(level_index):
 	current_level_index = level_index
-	assert(level_index >= 0 and level_index < loaded_levels.size())
+	if not (level_index >= 0 and level_index < loaded_levels.size()):
+		return
+		
 	var level_path: PackedScene = loaded_levels[level_index]
 	remove_child(current_level)
 	if current_level:
@@ -108,13 +110,19 @@ func load_level(level_index):
 	current_level.spawn_bonus()
 	is_game_active = true
 	is_dead = false;
+	is_victory = false;
 	respawned.emit()
 
 func goal_reached() -> void:
 	next_level()
 
 func victory() -> void:
+	is_victory = true;
+	player.pause()
 	is_game_active = false
+	victory_happend.emit()
+	current_leader_board = await refresh_leader_board()
+	parse_leader_board.emit()
 	
 func death() -> void:
 	is_dead = true;
@@ -174,9 +182,7 @@ func is_best_result() -> bool:
 	return false
 
 func next_level():
-	if current_level_index + 1 < levels.size():
-		current_level_index += 1
-
+	current_level_index += 1
 	if current_level_index < levels.size():
 		load_level(current_level_index)
 	else:

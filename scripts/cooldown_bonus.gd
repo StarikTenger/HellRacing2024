@@ -1,6 +1,8 @@
 extends Area2D
 
-@onready var player : Skull = $"../../../Skull"
+class_name CooldownBonus
+
+@onready var player : Skull = $"/root/LevelManager/Skull"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,6 +16,7 @@ func _process(delta):
 	$AnimatedSprite2D.position.y = 10 * sin(time)
 	var scale : float = 0.215 + 0.03 * sin(time)
 	$Shadow.scale = Vector2(scale, scale)
+	print(player)
 
 
 func _on_body_entered(body):

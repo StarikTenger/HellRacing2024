@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://dp04ik1vg6un7"]
+[gd_scene load_steps=12 format=3 uid="uid://dp04ik1vg6un7"]
 
 [ext_resource type="FontFile" uid="uid://byt7wrndfoqim" path="res://fonts/ChangaOne-Regular.ttf" id="1_xgapt"]
-[ext_resource type="Texture2D" uid="uid://nj5iecqysnk1" path="res://textures/HUD/bar.png" id="1_y2c5l"]
-[ext_resource type="Texture2D" uid="uid://cmmyjdlirjruy" path="res://textures/HUD/line.png" id="2_7dtho"]
+[ext_resource type="Texture2D" uid="uid://cb6lfrv3bv6v3" path="res://textures/HUD/bar.png" id="1_y2c5l"]
+[ext_resource type="Texture2D" uid="uid://dr5uncnvqvp7y" path="res://textures/HUD/line.png" id="2_7dtho"]
 [ext_resource type="Script" path="res://scripts/LevelIndicatorLabel.gd" id="2_7wful"]
 [ext_resource type="Script" path="res://scripts/OverheatBar.gd" id="3_xljae"]
 [ext_resource type="Script" path="res://scripts/TimeLabel.gd" id="4_c84tb"]
 [ext_resource type="PackedScene" uid="uid://b30gwpehrqnep" path="res://scenes/DeathScreen.tscn" id="6_gjj4b"]
 [ext_resource type="PackedScene" uid="uid://c3w41gs4en31c" path="res://scenes/PauseScreen.tscn" id="8_a0m5x"]
+[ext_resource type="PackedScene" uid="uid://c75o3uesvibeo" path="res://scenes/VictoryScreen.tscn" id="9_nf0mv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fddug"]
 font = ExtResource("1_xgapt")
@@ -78,5 +79,10 @@ script = ExtResource("4_c84tb")
 layout_mode = 1
 
 [node name="PauseScreen" parent="Screen" instance=ExtResource("8_a0m5x")]
+layout_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="VicroryScreen" parent="Screen" instance=ExtResource("9_nf0mv")]
+visible = false
 layout_mode = 1
 metadata/_edit_lock_ = true
