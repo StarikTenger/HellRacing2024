@@ -14,7 +14,7 @@ class_name MenuScreen
 @export var win_color: Color
 @export var level_color: Color
 
-var current_leaderboard = {}
+# var current_leaderboard = {}
 
 var font = load("res://fonts/ChangaOne-Regular.ttf")
 var label_settings = LabelSettings.new()
@@ -68,13 +68,13 @@ func sort_ascending(a, b) -> bool:
 
 
 func update_leaderboard_grid():
-	if not current_leaderboard:
+	if not level_manager.current_leader_board:
 		return
 	var arr = []
-	for key in current_leaderboard:
+	for key in level_manager.current_leader_board:
 		var temp = []
 		temp.append(key)
-		temp.append(current_leaderboard[key])
+		temp.append(level_manager.current_leader_board[key])
 		arr.append(temp)
 	
 	arr.sort_custom(sort_ascending)

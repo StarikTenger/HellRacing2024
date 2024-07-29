@@ -27,11 +27,11 @@ func _on_resumed():
 func _on_submit_button_pressed():
 	var name = line_edit.text
 	#level_manager.submit_score_leader_board(name)
-	if name in menu_screen.current_leaderboard:
-		if menu_screen.current_leaderboard[name] > level_manager.current_time:
-			menu_screen.current_leaderboard[name] = level_manager.current_time
+	if name in level_manager.current_leader_board:
+		if level_manager.current_leader_board[name] > level_manager.current_time:
+			level_manager.current_leader_board[name] = level_manager.current_time
 	else:
-		menu_screen.current_leaderboard[name] = level_manager.current_time
+		level_manager.current_leader_board[name] = level_manager.current_time
 	
 	level_manager.parse_leader_board.emit()
 	$MenuScreen/SubmitButton.hide()
