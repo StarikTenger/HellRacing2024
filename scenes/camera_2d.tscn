@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://ca75di8l8w2ct"]
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2(36, 214)
+scale = Vector2(0.999999, 0.999999)

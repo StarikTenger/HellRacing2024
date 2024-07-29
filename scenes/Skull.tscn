@@ -198,6 +198,7 @@ scale_curve = SubResource("CurveTexture_r8wl6")
 alpha_curve = SubResource("CurveTexture_8nx71")
 
 [node name="Skull" type="CharacterBody2D"]
+top_level = true
 scale = Vector2(0.3, 0.3)
 collision_mask = 2
 script = ExtResource("1_ocvkw")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwdysjmgbem0r"]
+
+[ext_resource type="AudioStream" uid="uid://cfvdlgltlqkp4" path="res://music/hell-rider-1.ogg" id="1_ievsf"]
+
+[node name="MusicQuite" type="AudioStreamPlayer"]
+stream = ExtResource("1_ievsf")
+volume_db = -10.0
+autoplay = true

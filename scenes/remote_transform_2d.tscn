@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://uiye53oror8a"]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D"]
+scale = Vector2(3.33333, 3.33333)
+remote_path = NodePath("../../Camera2D")
