@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ny17ke668llt"]
 
 [ext_resource type="PackedScene" uid="uid://cl0bcqriec3jy" path="res://scenes/cooldown_bonus.tscn" id="1_of7a2"]
-[ext_resource type="TileSet" uid="uid://dg62fin4drjnu" path="res://resources/tileset.tres" id="2_vpp0b"]
+[ext_resource type="TileSet" uid="uid://c4cq6ahbvrp0s" path="res://resources/tileset.tres" id="2_vpp0b"]
 [ext_resource type="PackedScene" uid="uid://eyv6i0lu3mu4" path="res://scenes/FinishPosition.tscn" id="3_fn886"]
 [ext_resource type="PackedScene" uid="uid://c84gf4e4nd07m" path="res://scenes/DestructibleObstacle.tscn" id="4_v06f8"]
 [ext_resource type="FontFile" uid="uid://cnuhbnlmaseqv" path="res://fonts/Bungee-Regular.otf" id="5_p0qle"]

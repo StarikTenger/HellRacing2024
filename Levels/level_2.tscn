@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://gf04mfyu57dj"]
 
 [ext_resource type="PackedScene" uid="uid://cl0bcqriec3jy" path="res://scenes/cooldown_bonus.tscn" id="1_yolfh"]
-[ext_resource type="TileSet" uid="uid://dg62fin4drjnu" path="res://resources/tileset.tres" id="2_cfqsy"]
+[ext_resource type="TileSet" uid="uid://c4cq6ahbvrp0s" path="res://resources/tileset.tres" id="2_cfqsy"]
 [ext_resource type="PackedScene" uid="uid://c84gf4e4nd07m" path="res://scenes/DestructibleObstacle.tscn" id="3_72g57"]
 [ext_resource type="PackedScene" uid="uid://eyv6i0lu3mu4" path="res://scenes/FinishPosition.tscn" id="3_my1ni"]
 
@@ -46,7 +46,7 @@ position = Vector2(-357, -429)
 scale = Vector2(2, 2)
 
 [node name="FinishPosition" parent="." instance=ExtResource("3_my1ni")]
-position = Vector2(1863, -547)
+position = Vector2(320, -427)
 
 [node name="Bonuses" type="Node2D" parent="."]
 position = Vector2(2732, -1294)

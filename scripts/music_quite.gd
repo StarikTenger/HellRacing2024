@@ -23,5 +23,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(volume_modifier_2)
 	volume_db = -10 + volume_modifier + volume_modifier_2

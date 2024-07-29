@@ -23,6 +23,7 @@ var music_loud: MusicLoud = null
 var is_game_active: bool = true;
 var is_dead: bool = false;
 var is_victory: bool = false;
+var is_not_started: bool = true;
 var current_time: float = 0 # В секундах
 
 var current_leader_board: Dictionary;
@@ -60,6 +61,7 @@ func start_game():
 		remove_child(st_scene)
 		st_scene.queue_free()
 		load_level(0)
+		is_not_started = false
 
 func _process(delta):
 	if is_game_active:
@@ -70,7 +72,7 @@ func _input(event):
 		change_game_state()
 
 func change_game_state():
-	if is_dead or is_victory:
+	if is_dead or is_victory or is_not_started:
 		return
 	
 	if is_game_active:
@@ -171,18 +173,19 @@ func is_best_result() -> bool:
 		player_id = player_response_data["player_id"]
 		if player_response_data["seen_before"]:
 			var getLeaderboard : LootLockerGetLeaderboard = await LootLockerApi._ListLeaderboard(leaderboard_key)
-			var list_of_lb = JSON.parse_string(getLeaderboard.ToJson())
-			# print(list_of_lb)
-			if list_of_lb["items"]:
-				var flag : bool = false
-				for pl in list_of_lb["items"]:
-					if pl["player"]["id"] == player_id:
-						flag = true
-						print(pl["score"])
-						if pl["score"] > current_time:
-							return true
-				if !flag:
-					return true
+			if getLeaderboard:
+				var list_of_lb = JSON.parse_string(getLeaderboard.ToJson())
+				# print(list_of_lb)
+				if list_of_lb["items"]:
+					var flag : bool = false
+					for pl in list_of_lb["items"]:
+						if pl["player"]["id"] == player_id:
+							flag = true
+							#print(pl["score"])
+							if pl["score"] > current_time:
+								return true
+					if !flag:
+						return true
 		else:
 			return true
 	return false
