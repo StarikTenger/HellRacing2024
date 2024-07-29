@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://mkr4skyvgvdl" path="res://textures/particles_smoke.png" id="5_8li0s"]
 [ext_resource type="AudioStream" uid="uid://b6fq6bunl1p2w" path="res://sfx/fire.ogg" id="6_2v2vg"]
 [ext_resource type="AudioStream" uid="uid://dminud74g8fu1" path="res://sfx/steam.ogg" id="6_f2u1h"]
-[ext_resource type="Texture2D" path="res://textures/arrow.png" id="7_2hy5s"]
+[ext_resource type="Texture2D" uid="uid://bw0imf6nk4cgq" path="res://textures/arrow.png" id="7_2hy5s"]
 [ext_resource type="AudioStream" uid="uid://7vo6et5ttah6" path="res://sfx/death.wav" id="9_5g5jv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e83ju"]

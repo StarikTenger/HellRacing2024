@@ -46,7 +46,7 @@ position = Vector2(-357, -429)
 scale = Vector2(2, 2)
 
 [node name="FinishPosition" parent="." instance=ExtResource("3_my1ni")]
-position = Vector2(320, -427)
+position = Vector2(1874, -523)
 
 [node name="Bonuses" type="Node2D" parent="."]
 position = Vector2(2732, -1294)

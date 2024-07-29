@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://cffa7qodu0m4t"]
 
 [ext_resource type="Script" path="res://scripts/MenuScreen.gd" id="1_g22gm"]
-[ext_resource type="Texture2D" uid="uid://evdt8h6fp7m3" path="res://textures/HUD/info.png" id="2_c30q0"]
+[ext_resource type="Texture2D" uid="uid://43ivf8eli366" path="res://textures/HUD/info.png" id="2_c30q0"]
 [ext_resource type="FontFile" uid="uid://byt7wrndfoqim" path="res://fonts/ChangaOne-Regular.ttf" id="3_f48g0"]
 [ext_resource type="FontFile" uid="uid://cnuhbnlmaseqv" path="res://fonts/Bungee-Regular.otf" id="3_q4soy"]
-[ext_resource type="Texture2D" uid="uid://xnspqyfo6hhf" path="res://textures/HUD/settings.png" id="5_yfbhb"]
-[ext_resource type="Texture2D" uid="uid://dms5a2hlnaacn" path="res://textures/HUD/leaderboard.png" id="6_7fdkx"]
+[ext_resource type="Texture2D" uid="uid://dw5s2y2nom0hh" path="res://textures/HUD/settings.png" id="5_yfbhb"]
+[ext_resource type="Texture2D" uid="uid://bgiebv6pgjban" path="res://textures/HUD/leaderboard.png" id="6_7fdkx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8u2gq"]
 font = ExtResource("3_f48g0")
