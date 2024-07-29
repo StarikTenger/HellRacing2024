@@ -51,8 +51,8 @@ position = Vector2(1863, -547)
 [node name="Bonuses" type="Node2D" parent="."]
 position = Vector2(2732, -1294)
 
-[node name="CooldownBonus" parent="." instance=ExtResource("1_yolfh")]
-position = Vector2(-70, -448)
+[node name="CooldownBonus" parent="Bonuses" instance=ExtResource("1_yolfh")]
+position = Vector2(-2802, 846)
 
 [node name="Destructibles" type="Node" parent="."]
 
