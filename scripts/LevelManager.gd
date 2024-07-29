@@ -30,13 +30,28 @@ signal resumed;
 signal parse_leader_board;
 
 func _ready():
-	await auth()
-	player_response_data = JSON.parse_string(response_session.ToJson())
-	player = $Skull
 	for i in range(len(levels)):
 		loaded_levels.append(load(levels[i]))
-	load_level(current_level_index)
+	await auth()
+	player_response_data = JSON.parse_string(response_session.ToJson())
 	
+func load_materials():
+	player = load("res://scenes/Skull.tscn").instantiate()
+	add_child(player)
+	add_child(load("res://scenes/HUD.tscn").instantiate())
+	add_child(load("res://scenes/camera_2d.tscn").instantiate())
+	player.add_child(load("res://scenes/remote_transform_2d.tscn").instantiate())
+	add_child(load("res://scenes/music_quite.tscn").instantiate())
+	add_child(load("res://scenes/music_loud.tscn").instantiate())
+
+func start_game():
+	if player_response_data:
+		print(loaded_levels)
+		load_materials()
+		var st_scene = $StartScene
+		remove_child(st_scene)
+		st_scene.queue_free()
+		load_level(0)
 
 func _process(delta):
 	if is_game_active:

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://coox5ogcvgpax"]
+
+[ext_resource type="AudioStream" uid="uid://cnovsf0aamcbt" path="res://music/hell-rider-2.ogg" id="1_n6fw7"]
+[ext_resource type="Script" path="res://scripts/MusicLoud.gd" id="2_bgxy6"]
+
+[node name="MusicLoud" type="AudioStreamPlayer"]
+stream = ExtResource("1_n6fw7")
+volume_db = -80.0
+autoplay = true
+script = ExtResource("2_bgxy6")
