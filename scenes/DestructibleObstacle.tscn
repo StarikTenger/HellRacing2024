@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/DestructibleObstacle.gd" id="1_uflla"]
 [ext_resource type="AudioStream" uid="uid://c02dg1be14ybc" path="res://object-destruct-placeholder.mp3" id="3_6gak0"]
-[ext_resource type="Texture2D" uid="uid://b7evjho1q4ug6" path="res://textures/demon_death_1.png" id="3_dywor"]
-[ext_resource type="Texture2D" uid="uid://bgkct6hjxeocj" path="res://textures/demon_death_2.png" id="4_7swee"]
-[ext_resource type="Texture2D" uid="uid://bnc276ly26en3" path="res://textures/demon_strong_1.png" id="4_ywfu4"]
-[ext_resource type="Texture2D" uid="uid://b3jxcbt02tqts" path="res://textures/demon_weak_1.png" id="5_mip77"]
-[ext_resource type="Texture2D" uid="uid://5bn8k7y4tdy2" path="res://textures/demon_death_3.png" id="5_r5dsw"]
+[ext_resource type="Texture2D" uid="uid://cy4urqal777pj" path="res://textures/demon_death_1.png" id="3_dywor"]
+[ext_resource type="Texture2D" uid="uid://cqycxwo530n6x" path="res://textures/demon_death_2.png" id="4_7swee"]
+[ext_resource type="Texture2D" uid="uid://d3fgmjh01snmq" path="res://textures/demon_strong_1.png" id="4_ywfu4"]
+[ext_resource type="Texture2D" uid="uid://sm4l6n0ksqbh" path="res://textures/demon_weak_1.png" id="5_mip77"]
+[ext_resource type="Texture2D" uid="uid://b6lwyivigjsav" path="res://textures/demon_death_3.png" id="5_r5dsw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_soup3"]
 size = Vector2(12.3437, 13.4375)
