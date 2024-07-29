@@ -7,12 +7,14 @@ class_name MenuScreen
 @onready var time_label = $"LabelsContainer/VBoxContainer/TimeLabel"
 @onready var leaderboard_grid: GridContainer = $"LeaderboardContainer/VBoxContainer/GridContainer"
 
-@export var limit = 10
+@export var limit = 7
 @export var font_size = 36
 
 @export var dead_color: Color
 @export var win_color: Color
 @export var level_color: Color
+
+var current_leaderboard = {}
 
 var font = load("res://fonts/ChangaOne-Regular.ttf")
 var label_settings = LabelSettings.new()
@@ -51,7 +53,7 @@ func _process(delta):
 
 func _on_leaderpoard_refresh():
 	clear_leaderboard_grid();
-	update_leaderboard_grid(level_manager.current_leader_board);
+	update_leaderboard_grid();
 		
 	
 func clear_leaderboard_grid():
@@ -59,7 +61,24 @@ func clear_leaderboard_grid():
 		leaderboard_grid.remove_child(child)
 		child.queue_free()
 
-func update_leaderboard_grid(dict: Dictionary):
+func sort_ascending(a, b) -> bool:
+	if a[1] < b[1]:
+		return true
+	return false
+
+
+func update_leaderboard_grid():
+	if not current_leaderboard:
+		return
+	var arr = []
+	for key in current_leaderboard:
+		var temp = []
+		temp.append(key)
+		temp.append(current_leaderboard[key])
+		arr.append(temp)
+	
+	arr.sort_custom(sort_ascending)
+	
 	var font = load("res://fonts/ChangaOne-Regular.ttf")
 	var label_settings = LabelSettings.new()
 	label_settings.font = font
@@ -81,11 +100,9 @@ func update_leaderboard_grid(dict: Dictionary):
 	leaderboard_grid.add_child(name_header)
 	leaderboard_grid.add_child(score_header)
 	
-	if not dict:
-		return
 	
 	var i = 1
-	for row in dict["items"]:
+	for row in arr:
 		if i > limit:
 			break
 			
@@ -93,15 +110,15 @@ func update_leaderboard_grid(dict: Dictionary):
 		
 		var rank_label = Label.new()
 		rank_label.set("label_settings", label_settings)
-		rank_label.text = str(row["rank"])
+		rank_label.text = str(i - 1)
 		
 		var name_label = Label.new()
 		name_label.set("label_settings", label_settings)
-		name_label.text = row["player"]["name"]
+		name_label.text = row[0]
 		
 		var score_label = Label.new()
 		score_label.set("label_settings", label_settings)
-		score_label.text = str("%02d:%02d" % [floor(row["score"] / 60), int(row["score"]) % 60])
+		score_label.text = str("%02d:%02d" % [floor(row[1] / 60), int(row[1]) % 60])
 		
 		leaderboard_grid.add_child(rank_label)
 		leaderboard_grid.add_child(name_label)
