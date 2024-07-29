@@ -154,9 +154,6 @@ func _process(delta):
 			pass
 		State.ALIVE:
 			rotation_animation()
-			# Test slowdown, TODO remove
-			if Input.is_action_pressed("down"):
-				slow_down()
 			# Rotation control
 			if Input.is_action_pressed("left"):
 				target_rotation -= turn_speed * delta
