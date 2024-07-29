@@ -39,7 +39,7 @@ signal victory_happend;
 func _ready():
 	for i in range(len(levels)):
 		loaded_levels.append(load(levels[i]))
-	start_game()
+	# start_game()
 	# await auth()
 	# player_response_data = JSON.parse_string(response_session.ToJson())
 
