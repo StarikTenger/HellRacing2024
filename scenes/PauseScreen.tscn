@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/PauseScreen.gd" id="1_5kvwo"]
 [ext_resource type="PackedScene" uid="uid://cffa7qodu0m4t" path="res://scenes/MenuScreen.tscn" id="2_yhxah"]
-[ext_resource type="Texture2D" uid="uid://c70tpcx825f2r" path="res://textures/HUD/button.png" id="3_ojbuy"]
-[ext_resource type="Texture2D" uid="uid://qyi88qh4c4ge" path="res://textures/HUD/buttonhover.png" id="4_mq7ku"]
-[ext_resource type="Texture2D" uid="uid://c3xgh32bmdqmb" path="res://textures/HUD/restart.png" id="6_fvjne"]
-[ext_resource type="Texture2D" uid="uid://nq120bxapueh" path="res://textures/HUD/restarthover.png" id="7_3oeh8"]
+[ext_resource type="Texture2D" uid="uid://2y3evbo6ac36" path="res://textures/HUD/button.png" id="3_ojbuy"]
+[ext_resource type="Texture2D" uid="uid://mdtlf2upi31y" path="res://textures/HUD/buttonhover.png" id="4_mq7ku"]
+[ext_resource type="Texture2D" uid="uid://cfh2cbdeef4k0" path="res://textures/HUD/restart.png" id="6_fvjne"]
+[ext_resource type="Texture2D" uid="uid://clxqx6s7ygkxg" path="res://textures/HUD/restarthover.png" id="7_3oeh8"]
 [ext_resource type="FontFile" uid="uid://cnuhbnlmaseqv" path="res://fonts/Bungee-Regular.otf" id="7_tocqg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qrm40"]
