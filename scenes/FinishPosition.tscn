@@ -1,11 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://eyv6i0lu3mu4"]
 
-[ext_resource type="Texture2D" uid="uid://c574n5bfgx86e" path="res://textures/finish_point.jpg" id="1_ow108"]
+[ext_resource type="Texture2D" uid="uid://r6e8nw0ixu3a" path="res://textures/pento.png" id="1_4vxdl"]
 
 [sub_resource type="GDScript" id="GDScript_u5xlg"]
 script/source = "extends Area2D
 
 @onready var player = $\"/root/LevelManager/Skull\"
+
+func _process(delta):
+	rotation += delta
 
 func _on_body_entered(body):
 	if body == player:
@@ -22,8 +25,8 @@ script = SubResource("GDScript_u5xlg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(9.15527e-05, -1.52588e-05)
-scale = Vector2(0.332334, 0.332)
-texture = ExtResource("1_ow108")
+scale = Vector2(0.652, 0.652)
+texture = ExtResource("1_4vxdl")
 
 [node name="FinishCollision" type="CollisionShape2D" parent="."]
 position = Vector2(3.05176e-05, -6.10352e-05)
