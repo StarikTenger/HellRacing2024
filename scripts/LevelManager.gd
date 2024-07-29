@@ -2,8 +2,8 @@ extends Node2D
 
 class_name LevelManager
 
-# @export var levels = ["res://Levels/level_1.tscn","res://Levels/level_2.tscn", "res://Levels/level_andrei.tscn", "res://Levels/level_4.tscn"]  # Список сцен уровней
-@export var levels = ["res://Levels/level_1.tscn"]
+@export var levels = ["res://Levels/level_1.tscn","res://Levels/level_2.tscn", "res://Levels/level_andrei.tscn", "res://Levels/level_4.tscn"]  # Список сцен уровней
+# @export var levels = ["res://Levels/level_1.tscn"]
 
 var response_session: GuestSession = null
 var response_player_set_name : PlayerName = null
