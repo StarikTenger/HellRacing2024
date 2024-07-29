@@ -36,7 +36,7 @@ func _ready():
 		loaded_levels.append(load(levels[i]))
 	await auth()
 	player_response_data = JSON.parse_string(response_session.ToJson())
-	
+
 func load_materials():
 	player = load("res://scenes/Skull.tscn").instantiate()
 	add_child(player)

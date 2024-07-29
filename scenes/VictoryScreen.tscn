@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/VictoryScreen.gd" id="1_sqof0"]
 [ext_resource type="PackedScene" uid="uid://cffa7qodu0m4t" path="res://scenes/MenuScreen.tscn" id="2_jxkwy"]
-[ext_resource type="Texture2D" uid="uid://c70tpcx825f2r" path="res://textures/HUD/button.png" id="3_iq02y"]
-[ext_resource type="Texture2D" uid="uid://qyi88qh4c4ge" path="res://textures/HUD/buttonhover.png" id="4_c1u76"]
+[ext_resource type="Texture2D" uid="uid://2y3evbo6ac36" path="res://textures/HUD/button.png" id="3_iq02y"]
+[ext_resource type="Texture2D" uid="uid://mdtlf2upi31y" path="res://textures/HUD/buttonhover.png" id="4_c1u76"]
 [ext_resource type="FontFile" uid="uid://cnuhbnlmaseqv" path="res://fonts/Bungee-Regular.otf" id="5_qodh7"]
 [ext_resource type="FontFile" uid="uid://byt7wrndfoqim" path="res://fonts/ChangaOne-Regular.ttf" id="6_jjjhj"]
 
