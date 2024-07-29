@@ -1,5 +1,6 @@
 extends AudioStreamPlayer
 
+class_name MusicLoud
 
 var volume_modifier = 0
 var volume_modifier_2 = -10

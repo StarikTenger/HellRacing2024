@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://be25udtxjqxgc"]
+[gd_scene load_steps=3 format=3 uid="uid://dfpi3th2uwxgx"]
 
 [ext_resource type="AudioStream" uid="uid://cfvdlgltlqkp4" path="res://music/hell-rider-1.ogg" id="1_ievsf"]
 [ext_resource type="Script" path="res://scripts/music_quite.gd" id="2_hod0f"]

@@ -10,6 +10,22 @@ class_name MenuScreen
 @export var limit = 10
 @export var font_size = 36
 
+@export var dead_color: Color
+@export var win_color: Color
+@export var level_color: Color
+
+var font = load("res://fonts/ChangaOne-Regular.ttf")
+var label_settings = LabelSettings.new()
+
+var info_label_settings = LabelSettings.new()
+
+func _init():
+	label_settings.font = font
+	label_settings.font_size = font_size
+	
+	info_label_settings.font = font
+	info_label_settings.font_size = 64
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	level_manager.parse_leader_board.connect(_on_leaderpoard_refresh)
@@ -19,11 +35,16 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if level_manager.is_dead:
-		info_label.text = "You DEAD"
+		info_label.text = "You dead"
+		info_label_settings.font_color = dead_color
 	elif level_manager.is_victory:
-		info_label.text = "Victory!"
+		info_label.text = "You won!"
+		info_label_settings.font_color = win_color
 	else:
 		info_label.text = "Level %d" % (level_manager.current_level_index + 1)
+		info_label_settings.font_color = level_color
+		
+	info_label.set("label_settings", info_label_settings)
 		
 	time_label.text = "%02d:%02d" % [floor(level_manager.current_time / 60), int(level_manager.current_time) % 60]
 	
@@ -54,7 +75,7 @@ func update_leaderboard_grid(dict: Dictionary):
 		
 	var score_header = Label.new()
 	score_header.set("label_settings", label_settings)
-	score_header.text = "SCORE"
+	score_header.text = "TIME"
 	
 	leaderboard_grid.add_child(rank_header)
 	leaderboard_grid.add_child(name_header)
@@ -86,5 +107,11 @@ func update_leaderboard_grid(dict: Dictionary):
 		leaderboard_grid.add_child(name_label)
 		leaderboard_grid.add_child(score_label)
 		
-		
-	
+
+
+func _on_volume_slider_value_changed(value):
+	var norm_value = -20 + value*0.2
+	if value == 0:
+		norm_value = -10000000
+	level_manager.music_quite.volume_modifier_2 = norm_value
+	level_manager.music_loud.volume_modifier_2 = norm_value

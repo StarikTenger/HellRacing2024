@@ -154,9 +154,6 @@ func _process(delta):
 			pass
 		State.ALIVE:
 			rotation_animation()
-			# Test slowdown, TODO remove
-			if Input.is_action_pressed("down"):
-				slow_down()
 			# Rotation control
 			if Input.is_action_pressed("left"):
 				target_rotation -= turn_speed * delta
@@ -189,8 +186,10 @@ func die():
 	stop_particles()
 	$SkullAnimation.play("death")
 	$DeathSound.play()
+	$FireSound.stop()
 
 func goal_reached():
+	$FireSound.stop()
 	# Вызвать следующий уровень из менеджера уровней
 	level_manager.goal_reached()
 

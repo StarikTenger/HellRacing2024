@@ -1,11 +1,11 @@
 [gd_scene load_steps=47 format=3 uid="uid://c1g2kesrcewpi"]
 
 [ext_resource type="Script" path="res://scripts/Skull.gd" id="1_ocvkw"]
-[ext_resource type="Texture2D" uid="uid://c5r6l30mao3yv" path="res://textures/smoke_particle.png" id="2_n42io"]
+[ext_resource type="Texture2D" uid="uid://cbf8bse7ob71u" path="res://textures/smoke_particle.png" id="2_n42io"]
 [ext_resource type="Texture2D" uid="uid://db4782molxwls" path="res://textures/skullanimation.png" id="3_qnfed"]
-[ext_resource type="Texture2D" uid="uid://dvqsp4k1cpvgt" path="res://textures/particles.png" id="3_v604j"]
+[ext_resource type="Texture2D" uid="uid://dljrw38s8ccp3" path="res://textures/particles.png" id="3_v604j"]
 [ext_resource type="Texture2D" uid="uid://bxl1w5y11b82m" path="res://textures/SkullFin.png" id="4_v1pm0"]
-[ext_resource type="Texture2D" uid="uid://batm4wui0xdly" path="res://textures/particles_smoke.png" id="5_8li0s"]
+[ext_resource type="Texture2D" uid="uid://mkr4skyvgvdl" path="res://textures/particles_smoke.png" id="5_8li0s"]
 [ext_resource type="AudioStream" uid="uid://b6fq6bunl1p2w" path="res://sfx/fire.ogg" id="6_2v2vg"]
 [ext_resource type="AudioStream" uid="uid://dminud74g8fu1" path="res://sfx/steam.ogg" id="6_f2u1h"]
 [ext_resource type="Texture2D" uid="uid://bw0imf6nk4cgq" path="res://textures/arrow.png" id="7_2hy5s"]
@@ -305,7 +305,7 @@ texture = ExtResource("5_8li0s")
 
 [node name="FireSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_2v2vg")
-volume_db = -22.681
+volume_db = -30.0
 autoplay = true
 
 [node name="SteamSound" type="AudioStreamPlayer" parent="."]
@@ -314,6 +314,7 @@ volume_db = -17.702
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_5g5jv")
+volume_db = -15.0
 
 [node name="Arrow" type="Sprite2D" parent="."]
 position = Vector2(253.333, 1.90735e-06)
