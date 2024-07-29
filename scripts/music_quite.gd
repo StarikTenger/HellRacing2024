@@ -1,10 +1,9 @@
 extends AudioStreamPlayer
 
+@onready var level_manager = $"/root/LevelManager"
+@onready var volume_slider = $"/root/"
 
 var volume_modifier = 0
-var volume_modifier_2 = -10
-
-@onready var level_manager = $"/root/LevelManager"
 
 func _on_paused():
 	volume_modifier = -20
@@ -20,6 +19,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	volume_db = ($"../Skull".heat - 1) * 30 - 7 + volume_modifier + volume_modifier_2
-	
-
+	volume_db = -10 + volume_modifier

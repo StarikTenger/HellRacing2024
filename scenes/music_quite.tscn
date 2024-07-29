@@ -1,33 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwdysjmgbem0r"]
+[gd_scene load_steps=3 format=3 uid="uid://be25udtxjqxgc"]
 
 [ext_resource type="AudioStream" uid="uid://cfvdlgltlqkp4" path="res://music/hell-rider-1.ogg" id="1_ievsf"]
-
-[sub_resource type="GDScript" id="GDScript_y7745"]
-script/source = "extends AudioStreamPlayer
-
-@onready var level_manager = $\"/root/LevelManager\"
-
-var volume_modifier = 0
-
-func _on_paused():
-	volume_modifier = -20
-	
-func _on_resumed():
-	volume_modifier = 0
-
-func _ready():
-	level_manager.paused.connect(_on_paused)
-	level_manager.resumed.connect(_on_resumed)
-	volume_modifier = 0
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	volume_db = -10 + volume_modifier
-"
+[ext_resource type="Script" path="res://scripts/music_quite.gd" id="2_hod0f"]
 
 [node name="MusicQuite" type="AudioStreamPlayer"]
 stream = ExtResource("1_ievsf")
 volume_db = -10.0
 autoplay = true
-script = SubResource("GDScript_y7745")
+script = ExtResource("2_hod0f")
