@@ -45,13 +45,11 @@ func _process(delta):
 		current_time += delta
 
 func _input(event):
-	if event.is_action_pressed("restart"):
-		restart_level()
 	if event.is_action_pressed("pause"):
 		change_game_state()
 
 func change_game_state():
-	if is_dead:
+	if is_dead or is_victory:
 		return
 	
 	if is_game_active:
