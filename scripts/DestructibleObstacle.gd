@@ -35,10 +35,8 @@ func _ready():
 	sprite = $Sprite
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta : float):
-	
 	match state:
 		State.ACTIVE:
 			if player.heat > player.berserk_threshold:

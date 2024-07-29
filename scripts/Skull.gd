@@ -62,7 +62,7 @@ func _physics_process(delta):
 	match state:
 		State.ALIVE:
 			force = basic_force * pow(10, heat)
-			friction_k = basic_friction_k * pow(0.1, heat)
+			friction_k = basic_friction_k #* pow(0.1, heat)
 
 			# Acceleration
 			var direction : Vector2 = Vector2(1, 0).rotated(rotation)
@@ -101,6 +101,48 @@ func _physics_process(delta):
 func _ready():
 	get_node("SkullAnimation").play()
 	
+func get_sector(angle: float) -> int:
+	# Normalize the angle to be within [0, 360) degrees
+	var normalized_angle = int(angle) % 360
+	if normalized_angle < 0:
+		normalized_angle += 360
+
+	# Each sector spans 45 degrees
+	var sector_size = 45.0
+
+	# Determine the sector by dividing the angle by the sector size
+	var sector = int(normalized_angle / sector_size)
+
+	return sector
+
+	
+func rotation_animation():
+	var rot = get_sector(rotation_degrees + 22.5)
+	rot = 8 - rot
+	rot += 2
+	rot %= 8
+	$SkullAnimation.global_rotation = 0
+	$SkullAnimation.flip_h = false
+	match rot:
+		0: 
+			$SkullAnimation.play("rot_a")
+		1: 
+			$SkullAnimation.play("rot_b")
+		2: 
+			$SkullAnimation.play("rot_c")
+		3: 
+			$SkullAnimation.play("rot_d")
+		4: 
+			$SkullAnimation.play("rot_e")
+		5: 
+			$SkullAnimation.play("rot_d")
+			$SkullAnimation.flip_h = true
+		6: 
+			$SkullAnimation.play("rot_c")
+			$SkullAnimation.flip_h = true
+		7: 
+			$SkullAnimation.play("rot_b")
+			$SkullAnimation.flip_h = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):		
@@ -111,6 +153,7 @@ func _process(delta):
 		State.DEAD:
 			pass
 		State.ALIVE:
+			rotation_animation()
 			# Test slowdown, TODO remove
 			if Input.is_action_pressed("down"):
 				slow_down()

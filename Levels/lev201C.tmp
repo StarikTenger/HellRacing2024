@@ -20,7 +20,6 @@ func _process(delta):
 	pass
 	
 func spawn_bonus():
-	return
 	for bonus in $Bonuses.get_children():
 		bonus.queue_free()
 	for spawnpoint in $\"CooldownPositions\".get_children():
@@ -48,11 +47,19 @@ scale = Vector2(2, 2)
 [node name="FinishPosition" parent="." instance=ExtResource("3_my1ni")]
 position = Vector2(1863, -547)
 
+[node name="CooldownPositions" type="Node2D" parent="."]
+
+[node name="pos1" type="Marker2D" parent="CooldownPositions"]
+position = Vector2(1655, 1112)
+
+[node name="pos2" type="Marker2D" parent="CooldownPositions"]
+position = Vector2(-339, 731)
+
+[node name="pos3" type="Marker2D" parent="CooldownPositions"]
+position = Vector2(-10, -424)
+
 [node name="Bonuses" type="Node2D" parent="."]
 position = Vector2(2732, -1294)
-
-[node name="CooldownBonus" parent="Bonuses" instance=ExtResource("1_yolfh")]
-position = Vector2(-2802, 846)
 
 [node name="Destructibles" type="Node" parent="."]
 

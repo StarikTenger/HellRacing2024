@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://eyv6i0lu3mu4"]
 
-[ext_resource type="Texture2D" uid="uid://di5xgdg40jpga" path="res://textures/finish_point.jpg" id="1_ow108"]
+[ext_resource type="Texture2D" uid="uid://c574n5bfgx86e" path="res://textures/finish_point.jpg" id="1_ow108"]
 
 [sub_resource type="GDScript" id="GDScript_u5xlg"]
 script/source = "extends Area2D
