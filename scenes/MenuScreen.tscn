@@ -43,6 +43,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_g22gm")
+dead_color = Color(0.762081, 0, 0.203327, 1)
+win_color = Color(0, 0.726906, 0.324101, 1)
+level_color = Color(1, 1, 1, 1)
 metadata/_edit_lock_ = true
 
 [node name="LabelsContainer" type="MarginContainer" parent="."]
