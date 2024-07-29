@@ -54,7 +54,7 @@ func update_leaderboard_grid(dict: Dictionary):
 		
 	var score_header = Label.new()
 	score_header.set("label_settings", label_settings)
-	score_header.text = "SCORE"
+	score_header.text = "TIME"
 	
 	leaderboard_grid.add_child(rank_header)
 	leaderboard_grid.add_child(name_header)
@@ -86,5 +86,12 @@ func update_leaderboard_grid(dict: Dictionary):
 		leaderboard_grid.add_child(name_label)
 		leaderboard_grid.add_child(score_label)
 		
-		
-	
+
+
+func _on_volume_slider_value_changed(value):
+	var norm_value = -20 + value*0.2
+	if value == 0:
+		norm_value = -10000000
+	#print(norm_value)
+	level_manager.music_quite.volume_modifier_2 = norm_value
+	level_manager.music_loud.volume_modifier_2 = norm_value
