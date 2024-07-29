@@ -62,7 +62,7 @@ func _physics_process(delta):
 	match state:
 		State.ALIVE:
 			force = basic_force * pow(10, heat)
-			friction_k = basic_friction_k * pow(0.1, heat)
+			friction_k = basic_friction_k #* pow(0.1, heat)
 
 			# Acceleration
 			var direction : Vector2 = Vector2(1, 0).rotated(rotation)

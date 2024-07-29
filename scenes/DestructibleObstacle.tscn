@@ -150,5 +150,5 @@ position = Vector2(-9.53674e-07, -5)
 scale = Vector2(1.6325, 1.6325)
 sprite_frames = SubResource("SpriteFrames_sdj4i")
 animation = &"weak"
-frame_progress = 0.744549
+frame_progress = 0.230581
 metadata/_edit_lock_ = true
