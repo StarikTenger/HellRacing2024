@@ -187,6 +187,8 @@ func die():
 	$FireSound.stop()
 	level_manager.death()
 	stop_particles()
+	$SkullAnimation.play("death")
+	$DeathSound.play()
 
 func goal_reached():
 	# Вызвать следующий уровень из менеджера уровней
