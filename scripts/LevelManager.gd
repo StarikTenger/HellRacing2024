@@ -2,7 +2,8 @@ extends Node2D
 
 class_name LevelManager
 
-@export var levels = ["res://Levels/level_1.tscn","res://Levels/level_2.tscn", "res://Levels/level_andrei.tscn", "res://Levels/level_4.tscn"]  # Список сцен уровней
+# @export var levels = ["res://Levels/level_1.tscn","res://Levels/level_2.tscn", "res://Levels/level_andrei.tscn", "res://Levels/level_4.tscn"]  # Список сцен уровней
+@export var levels = ["res://Levels/level_1.tscn"]
 
 var response_session: GuestSession = null
 var response_player_set_name : PlayerName = null
@@ -38,8 +39,9 @@ signal victory_happend;
 func _ready():
 	for i in range(len(levels)):
 		loaded_levels.append(load(levels[i]))
-	await auth()
-	player_response_data = JSON.parse_string(response_session.ToJson())
+	start_game()
+	# await auth()
+	# player_response_data = JSON.parse_string(response_session.ToJson())
 
 func load_materials():
 	player = load("res://scenes/Skull.tscn").instantiate()
@@ -54,14 +56,13 @@ func load_materials():
 	add_child(music_loud)
 
 func start_game():
-	if player_response_data:
-		print(loaded_levels)
-		load_materials()
-		var st_scene = $StartScene
-		remove_child(st_scene)
-		st_scene.queue_free()
-		load_level(0)
-		is_not_started = false
+	print(loaded_levels)
+	load_materials()
+	var st_scene = $StartScene
+	remove_child(st_scene)
+	st_scene.queue_free()
+	load_level(0)
+	is_not_started = false
 
 func _process(delta):
 	if is_game_active:
@@ -84,7 +85,7 @@ func pause_game():
 	player.pause()
 	is_game_active = false
 	paused.emit()
-	current_leader_board = await refresh_leader_board()
+	# current_leader_board = await refresh_leader_board()
 	parse_leader_board.emit()
 	
 func resume_game():
@@ -108,8 +109,8 @@ func load_level(level_index):
 		return
 		
 	var level_path: PackedScene = loaded_levels[level_index]
-	remove_child(current_level)
 	if current_level:
+		remove_child(current_level)
 		current_level.queue_free()
 	current_level = level_path.instantiate()
 	add_child(current_level)
@@ -129,17 +130,18 @@ func victory() -> void:
 	player.pause()
 	is_game_active = false
 	victory_happend.emit()
-	current_leader_board = await refresh_leader_board()
+	# current_leader_board = await refresh_leader_board()
 	parse_leader_board.emit()
 	
 func death() -> void:
 	is_dead = true;
 	dead.emit();
 	is_game_active = false
-	current_leader_board = await refresh_leader_board()
+	# current_leader_board = await refresh_leader_board()
 	parse_leader_board.emit()
 
 func refresh_leader_board() -> Dictionary:
+	return {}
 	var getLeaderboard : LootLockerGetLeaderboard = await LootLockerApi._ListLeaderboard(leaderboard_key)
 	if not getLeaderboard:
 		return current_leader_board
@@ -169,6 +171,7 @@ func submit_score_leader_board(name = null) -> void:
 
 
 func is_best_result() -> bool:
+	return false
 	if response_session:
 		player_id = player_response_data["player_id"]
 		if player_response_data["seen_before"]:

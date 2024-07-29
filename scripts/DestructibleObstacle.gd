@@ -12,7 +12,6 @@ var state: State
 var health: float
 var death_sound: AudioStreamPlayer2D
 var collider_shape: CollisionShape2D
-var sprite: Sprite2D
 
 @onready var player : Skull = $"/root/LevelManager/Skull"
 
@@ -32,7 +31,6 @@ func _ready():
 	health = durability
 	death_sound = $DestroySound
 	collider_shape = $ColliderShape
-	sprite = $Sprite
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
