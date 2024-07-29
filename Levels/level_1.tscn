@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ny17ke668llt"]
+[gd_scene load_steps=7 format=3 uid="uid://ny17ke668llt"]
 
 [ext_resource type="PackedScene" uid="uid://cl0bcqriec3jy" path="res://scenes/cooldown_bonus.tscn" id="1_of7a2"]
 [ext_resource type="TileSet" uid="uid://c4cq6ahbvrp0s" path="res://resources/tileset.tres" id="2_vpp0b"]
 [ext_resource type="PackedScene" uid="uid://eyv6i0lu3mu4" path="res://scenes/FinishPosition.tscn" id="3_fn886"]
 [ext_resource type="PackedScene" uid="uid://c84gf4e4nd07m" path="res://scenes/DestructibleObstacle.tscn" id="4_v06f8"]
+[ext_resource type="FontFile" uid="uid://cnuhbnlmaseqv" path="res://fonts/Bungee-Regular.otf" id="5_p0qle"]
 
 [sub_resource type="GDScript" id="GDScript_5s4vk"]
 script/source = "extends Node2D
@@ -46,7 +47,7 @@ position = Vector2(-647, 259)
 scale = Vector2(2, 2)
 
 [node name="FinishPosition" parent="." instance=ExtResource("3_fn886")]
-position = Vector2(-112, 64.0001)
+position = Vector2(1012, 1526)
 
 [node name="Bonuses" type="Node2D" parent="."]
 
@@ -66,3 +67,54 @@ position = Vector2(285, 364)
 
 [node name="DestructibleObstacle" parent="Destructibles" instance=ExtResource("4_v06f8")]
 position = Vector2(-15, 316)
+
+[node name="DestructibleObstacle2" parent="Destructibles" instance=ExtResource("4_v06f8")]
+position = Vector2(1242, 689)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -555.0
+offset_top = 200.0
+offset_right = -60.0
+offset_bottom = 286.0
+theme_override_colors/font_color = Color(0.678431, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_p0qle")
+theme_override_font_sizes/font_size = 30
+text = "Take the holy water
+ to slow down!"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+offset_left = -557.0
+offset_top = 101.0
+offset_right = -62.0
+offset_bottom = 187.0
+theme_override_colors/font_color = Color(0.678431, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_p0qle")
+theme_override_font_sizes/font_size = 30
+text = "Press A-D or
+left-right to move"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 983.0
+offset_top = 577.0
+offset_right = 1478.0
+offset_bottom = 663.0
+theme_override_colors/font_color = Color(0.679015, 2.86378e-06, 2.88785e-07, 1)
+theme_override_fonts/font = ExtResource("5_p0qle")
+theme_override_font_sizes/font_size = 30
+text = "The devil is dangerous
+only when you slow!"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 767.0
+offset_top = 1383.0
+offset_right = 1262.0
+offset_bottom = 1469.0
+theme_override_colors/font_color = Color(0.679015, 2.86378e-06, 2.88785e-07, 1)
+theme_override_fonts/font = ExtResource("5_p0qle")
+theme_override_font_sizes/font_size = 30
+text = "The pentagram is
+a way out!"
+horizontal_alignment = 1
