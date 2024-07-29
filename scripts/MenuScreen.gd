@@ -20,6 +20,8 @@ func _ready():
 func _process(delta):
 	if level_manager.is_dead:
 		info_label.text = "You DEAD"
+	elif level_manager.is_victory:
+		info_label.text = "Victory!"
 	else:
 		info_label.text = "Level %d" % (level_manager.current_level_index + 1)
 		
