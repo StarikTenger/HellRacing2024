@@ -3,6 +3,7 @@ extends Control
 @onready var level_manager: LevelManager = $"/root/LevelManager"
 @onready var line_edit: LineEdit = $"MenuScreen/LineEdit"
 
+
 func _ready():
 	level_manager.victory_happend.connect(_on_victory)
 	level_manager.resumed.connect(_on_resumed)
@@ -14,6 +15,8 @@ func _process(delta):
 
 func _on_victory():
 	show()
+	$MenuScreen/SubmitButton.show()
+	$MenuScreen/LineEdit.show()
 	
 func _on_resumed():
 	hide()
@@ -22,6 +25,8 @@ func _on_resumed():
 func _on_submit_button_pressed():
 	var name = line_edit.text
 	level_manager.submit_score_leader_board(name)
+	$MenuScreen/SubmitButton.hide()
+	$MenuScreen/LineEdit.hide()
 
 
 func _on_restart_game_button_pressed():
