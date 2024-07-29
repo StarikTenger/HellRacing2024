@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cffa7qodu0m4t"]
+[gd_scene load_steps=14 format=3 uid="uid://cffa7qodu0m4t"]
 
 [ext_resource type="Script" path="res://scripts/MenuScreen.gd" id="1_g22gm"]
-[ext_resource type="Texture2D" uid="uid://43ivf8eli366" path="res://textures/HUD/info.png" id="2_c30q0"]
+[ext_resource type="Texture2D" uid="uid://evdt8h6fp7m3" path="res://textures/HUD/info.png" id="2_c30q0"]
 [ext_resource type="FontFile" uid="uid://byt7wrndfoqim" path="res://fonts/ChangaOne-Regular.ttf" id="3_f48g0"]
 [ext_resource type="FontFile" uid="uid://cnuhbnlmaseqv" path="res://fonts/Bungee-Regular.otf" id="3_q4soy"]
-[ext_resource type="Texture2D" uid="uid://dw5s2y2nom0hh" path="res://textures/HUD/settings.png" id="5_yfbhb"]
-[ext_resource type="Texture2D" uid="uid://bgiebv6pgjban" path="res://textures/HUD/leaderboard.png" id="6_7fdkx"]
+[ext_resource type="Texture2D" uid="uid://xnspqyfo6hhf" path="res://textures/HUD/settings.png" id="5_yfbhb"]
+[ext_resource type="Texture2D" uid="uid://dms5a2hlnaacn" path="res://textures/HUD/leaderboard.png" id="6_7fdkx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8u2gq"]
 font = ExtResource("3_f48g0")
@@ -20,10 +20,6 @@ font = ExtResource("3_q4soy")
 font_size = 48
 
 [sub_resource type="LabelSettings" id="LabelSettings_mnex6"]
-font = ExtResource("3_f48g0")
-font_size = 36
-
-[sub_resource type="LabelSettings" id="LabelSettings_sigw2"]
 font = ExtResource("3_f48g0")
 font_size = 36
 
@@ -64,7 +60,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="InfoLabelBackground" type="Sprite2D" parent="LabelsContainer"]
-modulate = Color(0.59677, 0.438744, 0.447409, 1)
 position = Vector2(158, 81.5)
 scale = Vector2(1.05251, 1.12)
 texture = ExtResource("2_c30q0")
@@ -98,14 +93,13 @@ anchor_bottom = 0.422
 offset_left = -280.72
 offset_top = -215.76
 offset_right = 281.28
-offset_bottom = -7.75999
+offset_bottom = -55.76
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
 [node name="Settings" type="Sprite2D" parent="SettingsContainer"]
-modulate = Color(0.536784, 0.453923, 0.508075, 1)
-position = Vector2(281.5, 152.88)
-scale = Vector2(1.45346, 1.76881)
+position = Vector2(281.5, 99.9995)
+scale = Vector2(1.45346, 1.24)
 texture = ExtResource("5_yfbhb")
 metadata/_edit_lock_ = true
 
@@ -128,23 +122,11 @@ theme_override_constants/v_separation = 20
 columns = 2
 metadata/_edit_lock_ = true
 
-[node name="VolumeLabel" type="Label" parent="SettingsContainer/VBoxContainer/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Volume"
-label_settings = SubResource("LabelSettings_mnex6")
-
-[node name="VolumeSlider" type="HSlider" parent="SettingsContainer/VBoxContainer/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-value = 50.0
-
 [node name="MusicLabel" type="Label" parent="SettingsContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Music"
-label_settings = SubResource("LabelSettings_sigw2")
+label_settings = SubResource("LabelSettings_mnex6")
 
 [node name="MusicSlider" type="HSlider" parent="SettingsContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -165,7 +147,6 @@ offset_right = 268.48
 offset_bottom = 223.6
 
 [node name="Leaderboard" type="Sprite2D" parent="LeaderboardContainer"]
-modulate = Color(0.475467, 0.477209, 0.48894, 1)
 position = Vector2(280, 272)
 scale = Vector2(1.43198, 2.96)
 texture = ExtResource("6_7fdkx")
@@ -204,3 +185,5 @@ label_settings = SubResource("LabelSettings_0el80")
 layout_mode = 2
 text = "Score"
 label_settings = SubResource("LabelSettings_hrml7")
+
+[connection signal="value_changed" from="SettingsContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_volume_slider_value_changed"]

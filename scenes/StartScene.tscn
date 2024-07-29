@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://4y84wrbaglsl"]
+[gd_scene load_steps=6 format=3 uid="uid://b1sw6at6uyje3"]
 
-[ext_resource type="Texture2D" uid="uid://dnt0bfjwsvlhb" path="res://textures/black.png" id="1_kej8v"]
+[ext_resource type="Texture2D" path="res://textures/black.png" id="1_kej8v"]
 [ext_resource type="Script" path="res://scripts/StartButton.gd" id="2_ht57i"]
-[ext_resource type="Texture2D" uid="uid://da3bs8vxek7hc" path="res://textures/_61860dd1-6d15-4619-98e0-b50c45010fa9.jpg" id="2_wtgmb"]
-[ext_resource type="Texture2D" uid="uid://bgwwpcl8m6bqp" path="res://textures/HUD/button_start.png" id="3_qjqgo"]
+[ext_resource type="Texture2D" path="res://textures/_61860dd1-6d15-4619-98e0-b50c45010fa9.jpg" id="2_wtgmb"]
+[ext_resource type="Texture2D" path="res://textures/HUD/button_start.png" id="3_qjqgo"]
 [ext_resource type="FontFile" uid="uid://s2klbokgfgm1" path="res://fonts/Bungee-Shade.otf" id="5_j6ffa"]
 
 [node name="Control" type="Control"]

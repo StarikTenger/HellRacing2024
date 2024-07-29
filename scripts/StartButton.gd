@@ -13,5 +13,4 @@ func _process(delta):
 
 
 func _on_pressed():
-	print("lol")
 	level_manager.start_game()
